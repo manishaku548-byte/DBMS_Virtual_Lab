@@ -1,21 +1,49 @@
-const menuToggle = document.getElementById('menuToggle');
-const modalOverlay = document.getElementById('modalOverlay');
-const closeModal = document.getElementById('closeModal');
+const menuBtn =
+document.getElementById("menuBtn");
 
-if (menuToggle && modalOverlay) {
-  menuToggle.onclick = () => {
-    modalOverlay.style.display = 'flex';
-  };
+const sidebar =
+document.getElementById("sidebar");
+
+const overlay =
+document.getElementById("overlay");
+
+menuBtn.addEventListener(
+"click",
+() => {
+
+sidebar.classList.add("active");
+
+overlay.classList.add("active");
+
+}
+);
+
+overlay.addEventListener(
+"click",
+() => {
+
+sidebar.classList.remove("active");
+
+overlay.classList.remove("active");
+
+}
+);
+
+document.addEventListener(
+"keydown",
+(event) => {
+
+if(event.key === "Escape"){
+
+sidebar.classList.remove("active");
+
+overlay.classList.remove("active");
+
 }
 
-if (closeModal && modalOverlay) {
-  closeModal.onclick = () => {
-    modalOverlay.style.display = 'none';
-  };
 }
+);
 
-window.onclick = (event) => {
-  if (event.target === modalOverlay) {
-    modalOverlay.style.display = 'none';
-  }
-};
+console.log(
+"DBMS Virtual Lab Loaded Successfully"
+);
