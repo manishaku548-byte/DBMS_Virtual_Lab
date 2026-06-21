@@ -235,22 +235,123 @@ Procedure
 <h2>
 Pre-Test Quiz
 </h2>
-
 <p>
-Which normal form removes partial dependency?
+1. Removes partial dependency?
 </p>
 
-<input
-type="radio"
-name="q1"
-value="2NF">
+<input type="radio" name="q1" value="2NF">
 2NF
 
-<input
-type="radio"
-name="q1"
-value="1NF">
+<input type="radio" name="q1" value="1NF">
 1NF
+
+<br><br>
+
+<p>
+2. 1NF requires values to be?
+</p>
+
+<input type="radio" name="q2" value="atomic">
+Atomic
+
+<input type="radio" name="q2" value="partial">
+Partially dependent
+
+<br><br>
+
+<p>
+3. Removes transitive dependency?
+</p>
+
+<input type="radio" name="q3" value="3NF">
+3NF
+
+<input type="radio" name="q3" value="2NF">
+2NF
+
+<br><br>
+
+<p>
+4. BCNF is stricter than?
+</p>
+
+<input type="radio" name="q4" value="stricter">
+3NF
+
+<input type="radio" name="q4" value="1NF">
+1NF
+
+<br><br>
+
+<p>
+5. Partial dependency is on?
+</p>
+
+<input type="radio" name="q5" value="partial">
+Part of composite key
+
+<input type="radio" name="q5" value="single">
+Single key
+
+<br><br>
+
+<p>
+6. Normalization reduces?
+</p>
+
+<input type="radio" name="q6" value="redundancy">
+Redundancy
+
+<input type="radio" name="q6" value="speed">
+Speed always
+
+<br><br>
+
+<p>
+7. Denormalization may improve?
+</p>
+
+<input type="radio" name="q7" value="performance">
+Performance
+
+<input type="radio" name="q7" value="integrity">
+Integrity only
+
+<br><br>
+
+<p>
+8. 4NF deals with?
+</p>
+
+<input type="radio" name="q8" value="MVD">
+Multi-valued dependency
+
+<input type="radio" name="q8" value="partial">
+Partial dependency
+
+<br><br>
+
+<p>
+9. Prime attribute is part of?
+</p>
+
+<input type="radio" name="q9" value="prime">
+Candidate key
+
+<input type="radio" name="q9" value="index">
+Index
+
+<br><br>
+
+<p>
+10. Boyce-Codd Normal Form is?
+</p>
+
+<input type="radio" name="q10" value="BCNF">
+BCNF
+
+<input type="radio" name="q10" value="3NF">
+3NF
 
 <br><br>
 
@@ -418,37 +519,26 @@ Highest normalization achieved in this simulator.
 
 function checkQuiz(){
 
-let ans =
-document.querySelector(
-'input[name="q1"]:checked'
-);
+var correct = {q1:"2NF", q2:"atomic", q3:"3NF", q4:"stricter", q5:"partial", q6:"redundancy", q7:"performance", q8:"MVD", q9:"prime", q10:"BCNF"};
+var score = 0;
 
-if(!ans){
+for(var k in correct){
 
-alert(
-"Select an answer"
-);
+var sel = document.querySelector('input[name="'+k+'"]:checked');
+
+if(!sel){
+
+alert("Please answer all 10 questions.");
 
 return;
 
 }
 
-if(ans.value==="2NF"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
+if(sel.value === correct[k]) score++;
 
 }
-else{
 
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
-
-}
+document.getElementById("quizResult").innerHTML = "Your Score: "+score+" out of 10";
 
 }
 

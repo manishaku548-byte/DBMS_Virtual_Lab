@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -234,24 +233,123 @@ Procedure
 <h2>
 Pre-Test Quiz
 </h2>
-
 <p>
-Which operator selects rows?
+1. Which operator selects rows?
 </p>
 
-<input
-type="radio"
-name="q1"
-value="selection"
->
+<input type="radio" name="q1" value="selection">
 Selection
 
-<input
-type="radio"
-name="q1"
-value="projection"
->
+<input type="radio" name="q1" value="projection">
 Projection
+
+<br><br>
+
+<p>
+2. Which operator selects columns?
+</p>
+
+<input type="radio" name="q2" value="projection">
+Projection
+
+<input type="radio" name="q2" value="selection">
+Selection
+
+<br><br>
+
+<p>
+3. Symbol sigma denotes?
+</p>
+
+<input type="radio" name="q3" value="selection">
+Selection
+
+<input type="radio" name="q3" value="projection">
+Projection
+
+<br><br>
+
+<p>
+4. Symbol pi denotes?
+</p>
+
+<input type="radio" name="q4" value="projection">
+Projection
+
+<input type="radio" name="q4" value="union">
+Union
+
+<br><br>
+
+<p>
+5. Natural join uses?
+</p>
+
+<input type="radio" name="q5" value="common">
+Common attributes
+
+<input type="radio" name="q5" value="all">
+All attributes
+
+<br><br>
+
+<p>
+6. Cartesian product is?
+</p>
+
+<input type="radio" name="q6" value="product">
+Cross product
+
+<input type="radio" name="q6" value="union">
+Union
+
+<br><br>
+
+<p>
+7. Union requires?
+</p>
+
+<input type="radio" name="q7" value="compatible">
+Compatible schemas
+
+<input type="radio" name="q7" value="any">
+Any schemas
+
+<br><br>
+
+<p>
+8. Difference operator is?
+</p>
+
+<input type="radio" name="q8" value="minus">
+Minus
+
+<input type="radio" name="q8" value="intersect">
+Intersection
+
+<br><br>
+
+<p>
+9. Rename operator is?
+</p>
+
+<input type="radio" name="q9" value="rho">
+Rho
+
+<input type="radio" name="q9" value="sigma">
+Sigma
+
+<br><br>
+
+<p>
+10. Division is used for?
+</p>
+
+<input type="radio" name="q10" value="all">
+For all queries
+
+<input type="radio" name="q10" value="some">
+For some only
 
 <br><br>
 
@@ -376,37 +474,26 @@ result.innerHTML=
 
 function checkQuiz(){
 
-let ans =
-document.querySelector(
-'input[name="q1"]:checked'
-);
+var correct = {q1:"selection", q2:"projection", q3:"selection", q4:"projection", q5:"common", q6:"product", q7:"compatible", q8:"minus", q9:"rho", q10:"all"};
+var score = 0;
 
-if(!ans){
+for(var k in correct){
 
-alert(
-"Select an answer"
-);
+var sel = document.querySelector('input[name="'+k+'"]:checked');
+
+if(!sel){
+
+alert("Please answer all 10 questions.");
 
 return;
 
 }
 
-if(ans.value==="selection"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
+if(sel.value === correct[k]) score++;
 
 }
-else{
 
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
-
-}
+document.getElementById("quizResult").innerHTML = "Your Score: "+score+" out of 10";
 
 }
 
@@ -414,4 +501,3 @@ document.getElementById(
 
 </body>
 </html>
-```

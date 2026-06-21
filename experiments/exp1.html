@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -285,25 +284,142 @@ Stored Records
 <h2>
 Pre-Test Quiz
 </h2>
-
 <div class="quiz-question">
 
 <p>
 1. Which system reduces redundancy?
 </p>
 
-<input
-type="radio"
-name="q1"
-value="DBMS"
->
+<input type="radio" name="q1" value="DBMS">
 DBMS
 
-<input
-type="radio"
-name="q1"
-value="File"
->
+<input type="radio" name="q1" value="File">
+File System
+
+</div>
+
+<div class="quiz-question">
+
+<p>
+2. Which provides better concurrent access?
+</p>
+
+<input type="radio" name="q2" value="DBMS">
+DBMS
+
+<input type="radio" name="q2" value="File">
+File System
+
+</div>
+
+<div class="quiz-question">
+
+<p>
+3. In a file system, data is stored in?
+</p>
+
+<input type="radio" name="q3" value="Tables">
+Tables
+
+<input type="radio" name="q3" value="Files">
+Files
+
+</div>
+
+<div class="quiz-question">
+
+<p>
+4. DBMS commonly uses which language?
+</p>
+
+<input type="radio" name="q4" value="SQL">
+SQL
+
+<input type="radio" name="q4" value="HTML">
+HTML
+
+</div>
+
+<div class="quiz-question">
+
+<p>
+5. Which enforces integrity constraints?
+</p>
+
+<input type="radio" name="q5" value="DBMS">
+DBMS
+
+<input type="radio" name="q5" value="File">
+File System
+
+</div>
+
+<div class="quiz-question">
+
+<p>
+6. ACID properties belong to?
+</p>
+
+<input type="radio" name="q6" value="DBMS">
+DBMS
+
+<input type="radio" name="q6" value="File">
+File System
+
+</div>
+
+<div class="quiz-question">
+
+<p>
+7. Data redundancy is higher in?
+</p>
+
+<input type="radio" name="q7" value="DBMS">
+DBMS
+
+<input type="radio" name="q7" value="File">
+File System
+
+</div>
+
+<div class="quiz-question">
+
+<p>
+8. Centralized control is in?
+</p>
+
+<input type="radio" name="q8" value="DBMS">
+DBMS
+
+<input type="radio" name="q8" value="File">
+File System
+
+</div>
+
+<div class="quiz-question">
+
+<p>
+9. Better security is in?
+</p>
+
+<input type="radio" name="q9" value="DBMS">
+DBMS
+
+<input type="radio" name="q9" value="File">
+File System
+
+</div>
+
+<div class="quiz-question">
+
+<p>
+10. Easier backup is in?
+</p>
+
+<input type="radio" name="q10" value="DBMS">
+DBMS
+
+<input type="radio" name="q10" value="File">
 File System
 
 </div>
@@ -430,37 +546,26 @@ document.getElementById(
 
 function checkQuiz(){
 
-let answer =
-document.querySelector(
-'input[name="q1"]:checked'
-);
+var correct = {q1:"DBMS", q2:"DBMS", q3:"Files", q4:"SQL", q5:"DBMS", q6:"DBMS", q7:"File", q8:"DBMS", q9:"DBMS", q10:"DBMS"};
+var score = 0;
 
-if(!answer){
+for(var k in correct){
 
-alert(
-"Select an answer"
-);
+var sel = document.querySelector('input[name="'+k+'"]:checked');
+
+if(!sel){
+
+alert("Please answer all 10 questions.");
 
 return;
 
 }
 
-if(answer.value==="DBMS"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
+if(sel.value === correct[k]) score++;
 
 }
-else{
 
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
-
-}
+document.getElementById("quizResult").innerHTML = "Your Score: "+score+" out of 10";
 
 }
 
@@ -468,4 +573,3 @@ document.getElementById(
 
 </body>
 </html>
-```

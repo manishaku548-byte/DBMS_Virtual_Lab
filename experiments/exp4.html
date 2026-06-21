@@ -256,22 +256,123 @@ Procedure
 <h2>
 Pre-Test Quiz
 </h2>
-
 <p>
-An Entity is converted into:
+1. Entity converts to a?
 </p>
 
-<input
-type="radio"
-name="q1"
-value="Table">
+<input type="radio" name="q1" value="Table">
 Table
 
-<input
-type="radio"
-name="q1"
-value="Column">
+<input type="radio" name="q1" value="Column">
 Column
+
+<br><br>
+
+<p>
+2. Attribute converts to a?
+</p>
+
+<input type="radio" name="q2" value="Column">
+Column
+
+<input type="radio" name="q2" value="Table">
+Table
+
+<br><br>
+
+<p>
+3. M:N relationship needs a?
+</p>
+
+<input type="radio" name="q3" value="Junction">
+Junction table
+
+<input type="radio" name="q3" value="Single">
+Single table
+
+<br><br>
+
+<p>
+4. 1:1 relationship may use?
+</p>
+
+<input type="radio" name="q4" value="Two">
+One or two tables
+
+<input type="radio" name="q4" value="Many">
+Many tables
+
+<br><br>
+
+<p>
+5. Weak entity key combines with?
+</p>
+
+<input type="radio" name="q5" value="Combined">
+Owner entity key
+
+<input type="radio" name="q5" value="Column">
+Column name
+
+<br><br>
+
+<p>
+6. Multivalued attribute becomes?
+</p>
+
+<input type="radio" name="q6" value="Separate">
+Separate table
+
+<input type="radio" name="q6" value="Column">
+Single column
+
+<br><br>
+
+<p>
+7. Relationship with attributes needs?
+</p>
+
+<input type="radio" name="q7" value="Separate">
+Separate relation
+
+<input type="radio" name="q7" value="Ignore">
+No mapping
+
+<br><br>
+
+<p>
+8. Foreign key references?
+</p>
+
+<input type="radio" name="q8" value="Primary">
+Primary key
+
+<input type="radio" name="q8" value="Index">
+Index
+
+<br><br>
+
+<p>
+9. Composite attribute maps to?
+</p>
+
+<input type="radio" name="q9" value="Multiple">
+Multiple columns
+
+<input type="radio" name="q9" value="Single">
+Single column
+
+<br><br>
+
+<p>
+10. ISA hierarchy mapped using?
+</p>
+
+<input type="radio" name="q10" value="Hierarchy">
+Super-sub tables
+
+<input type="radio" name="q10" value="Single">
+One table
 
 <br><br>
 
@@ -407,37 +508,26 @@ document.getElementById(
 
 function checkQuiz(){
 
-let ans =
-document.querySelector(
-'input[name="q1"]:checked'
-);
+var correct = {q1:"Table", q2:"Column", q3:"Junction", q4:"Two", q5:"Combined", q6:"Separate", q7:"Separate", q8:"Primary", q9:"Multiple", q10:"Hierarchy"};
+var score = 0;
 
-if(!ans){
+for(var k in correct){
 
-alert(
-"Select an answer"
-);
+var sel = document.querySelector('input[name="'+k+'"]:checked');
+
+if(!sel){
+
+alert("Please answer all 10 questions.");
 
 return;
 
 }
 
-if(ans.value==="Table"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
+if(sel.value === correct[k]) score++;
 
 }
-else{
 
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
-
-}
+document.getElementById("quizResult").innerHTML = "Your Score: "+score+" out of 10";
 
 }
 

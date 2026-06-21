@@ -205,22 +205,123 @@ Procedure
 <h2>
 Pre-Test Quiz
 </h2>
-
 <p>
-Which property ensures a transaction is completed fully or not at all?
+1. All-or-nothing property?
 </p>
 
-<input
-type="radio"
-name="q1"
-value="Atomicity">
+<input type="radio" name="q1" value="Atomicity">
 Atomicity
 
-<input
-type="radio"
-name="q1"
-value="Isolation">
+<input type="radio" name="q1" value="Isolation">
 Isolation
+
+<br><br>
+
+<p>
+2. Database remains in valid state?
+</p>
+
+<input type="radio" name="q2" value="Consistency">
+Consistency
+
+<input type="radio" name="q2" value="Durability">
+Durability
+
+<br><br>
+
+<p>
+3. Concurrent transactions do not interfere?
+</p>
+
+<input type="radio" name="q3" value="Isolation">
+Isolation
+
+<input type="radio" name="q3" value="Atomicity">
+Atomicity
+
+<br><br>
+
+<p>
+4. Durability is guaranteed after?
+</p>
+
+<input type="radio" name="q4" value="Commit">
+COMMIT
+
+<input type="radio" name="q4" value="Rollback">
+ROLLBACK
+
+<br><br>
+
+<p>
+5. ACID has how many properties?
+</p>
+
+<input type="radio" name="q5" value="4">
+Four
+
+<input type="radio" name="q5" value="3">
+Three
+
+<br><br>
+
+<p>
+6. COMMIT command?
+</p>
+
+<input type="radio" name="q6" value="Commit">
+Saves changes
+
+<input type="radio" name="q6" value="Rollback">
+Undoes changes
+
+<br><br>
+
+<p>
+7. ROLLBACK command?
+</p>
+
+<input type="radio" name="q7" value="Rollback">
+Undoes changes
+
+<input type="radio" name="q7" value="Commit">
+Saves changes
+
+<br><br>
+
+<p>
+8. Circular wait is called?
+</p>
+
+<input type="radio" name="q8" value="Deadlock">
+Deadlock
+
+<input type="radio" name="q8" value="Serializable">
+Serialization
+
+<br><br>
+
+<p>
+9. Two-phase locking has?
+</p>
+
+<input type="radio" name="q9" value="TwoPhase">
+Growing and shrinking
+
+<input type="radio" name="q9" value="One">
+Only growing
+
+<br><br>
+
+<p>
+10. Serializable schedule equals?
+</p>
+
+<input type="radio" name="q10" value="Serializable">
+Serial schedule result
+
+<input type="radio" name="q10" value="Parallel">
+Parallel always
 
 <br><br>
 
@@ -382,37 +483,26 @@ Deadlock Occurred
 
 function checkQuiz(){
 
-let ans =
-document.querySelector(
-'input[name="q1"]:checked'
-);
+var correct = {q1:"Atomicity", q2:"Consistency", q3:"Isolation", q4:"Commit", q5:"4", q6:"Commit", q7:"Rollback", q8:"Deadlock", q9:"TwoPhase", q10:"Serializable"};
+var score = 0;
 
-if(!ans){
+for(var k in correct){
 
-alert(
-"Select an answer"
-);
+var sel = document.querySelector('input[name="'+k+'"]:checked');
+
+if(!sel){
+
+alert("Please answer all 10 questions.");
 
 return;
 
 }
 
-if(ans.value==="Atomicity"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
+if(sel.value === correct[k]) score++;
 
 }
-else{
 
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
-
-}
+document.getElementById("quizResult").innerHTML = "Your Score: "+score+" out of 10";
 
 }
 

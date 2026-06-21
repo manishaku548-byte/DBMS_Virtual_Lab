@@ -219,22 +219,123 @@ Procedure
 <h2>
 Pre-Test Quiz
 </h2>
-
 <p>
-Which SQL command retrieves data?
+1. Which command retrieves data?
 </p>
 
-<input
-type="radio"
-name="q1"
-value="SELECT">
+<input type="radio" name="q1" value="SELECT">
 SELECT
 
-<input
-type="radio"
-name="q1"
-value="DELETE">
+<input type="radio" name="q1" value="DELETE">
 DELETE
+
+<br><br>
+
+<p>
+2. Which command adds a row?
+</p>
+
+<input type="radio" name="q2" value="INSERT">
+INSERT
+
+<input type="radio" name="q2" value="UPDATE">
+UPDATE
+
+<br><br>
+
+<p>
+3. Which command modifies data?
+</p>
+
+<input type="radio" name="q3" value="UPDATE">
+UPDATE
+
+<input type="radio" name="q3" value="DROP">
+DROP
+
+<br><br>
+
+<p>
+4. Which command removes a table?
+</p>
+
+<input type="radio" name="q4" value="DROP">
+DROP
+
+<input type="radio" name="q4" value="DELETE">
+DELETE
+
+<br><br>
+
+<p>
+5. Which command removes rows?
+</p>
+
+<input type="radio" name="q5" value="DELETE">
+DELETE
+
+<input type="radio" name="q5" value="DROP">
+DROP
+
+<br><br>
+
+<p>
+6. Which clause filters rows?
+</p>
+
+<input type="radio" name="q6" value="WHERE">
+WHERE
+
+<input type="radio" name="q6" value="GROUP">
+GROUP BY
+
+<br><br>
+
+<p>
+7. Which clause sorts result?
+</p>
+
+<input type="radio" name="q7" value="ORDER">
+ORDER BY
+
+<input type="radio" name="q7" value="HAVING">
+HAVING
+
+<br><br>
+
+<p>
+8. Which clause groups rows?
+</p>
+
+<input type="radio" name="q8" value="GROUP">
+GROUP BY
+
+<input type="radio" name="q8" value="ORDER">
+ORDER BY
+
+<br><br>
+
+<p>
+9. Which keyword removes duplicates?
+</p>
+
+<input type="radio" name="q9" value="DISTINCT">
+DISTINCT
+
+<input type="radio" name="q9" value="ALTER">
+ALTER
+
+<br><br>
+
+<p>
+10. Which combines two tables?
+</p>
+
+<input type="radio" name="q10" value="JOIN">
+JOIN
+
+<input type="radio" name="q10" value="ALTER">
+ALTER
 
 <br><br>
 
@@ -375,37 +476,26 @@ output.innerHTML =
 
 function checkQuiz(){
 
-let ans =
-document.querySelector(
-'input[name="q1"]:checked'
-);
+var correct = {q1:"SELECT", q2:"INSERT", q3:"UPDATE", q4:"DROP", q5:"DELETE", q6:"WHERE", q7:"ORDER", q8:"GROUP", q9:"DISTINCT", q10:"JOIN"};
+var score = 0;
 
-if(!ans){
+for(var k in correct){
 
-alert(
-"Select an answer"
-);
+var sel = document.querySelector('input[name="'+k+'"]:checked');
+
+if(!sel){
+
+alert("Please answer all 10 questions.");
 
 return;
 
 }
 
-if(ans.value==="SELECT"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
+if(sel.value === correct[k]) score++;
 
 }
-else{
 
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
-
-}
+document.getElementById("quizResult").innerHTML = "Your Score: "+score+" out of 10";
 
 }
 

@@ -271,9 +271,8 @@ Procedure
 <h2>
 Pre-Test Quiz
 </h2>
-
 <p>
-Which join returns only matching records?
+1. Join with matching records only?
 </p>
 
 <input type="radio" name="q1" value="inner">
@@ -281,6 +280,114 @@ INNER JOIN
 
 <input type="radio" name="q1" value="left">
 LEFT JOIN
+
+<br><br>
+
+<p>
+2. LEFT JOIN returns all from?
+</p>
+
+<input type="radio" name="q2" value="left">
+Left table
+
+<input type="radio" name="q2" value="inner">
+Matches only
+
+<br><br>
+
+<p>
+3. Non-matching rows show?
+</p>
+
+<input type="radio" name="q3" value="NULL">
+NULL
+
+<input type="radio" name="q3" value="Error">
+Error
+
+<br><br>
+
+<p>
+4. FULL OUTER JOIN returns from?
+</p>
+
+<input type="radio" name="q4" value="both">
+Both tables
+
+<input type="radio" name="q4" value="inner">
+Matches only
+
+<br><br>
+
+<p>
+5. CROSS JOIN is?
+</p>
+
+<input type="radio" name="q5" value="cross">
+Cartesian product
+
+<input type="radio" name="q5" value="common">
+Natural join
+
+<br><br>
+
+<p>
+6. Self join joins?
+</p>
+
+<input type="radio" name="q6" value="same">
+Same table
+
+<input type="radio" name="q6" value="two">
+Two tables
+
+<br><br>
+
+<p>
+7. Join condition written in?
+</p>
+
+<input type="radio" name="q7" value="ON">
+ON clause
+
+<input type="radio" name="q7" value="SELECT">
+SELECT list
+
+<br><br>
+
+<p>
+8. Equi join uses?
+</p>
+
+<input type="radio" name="q8" value="equi">
+Equality (=)
+
+<input type="radio" name="q8" value="nonequi">
+Inequality only
+
+<br><br>
+
+<p>
+9. Non-equi join uses?
+</p>
+
+<input type="radio" name="q9" value="nonequi">
+Other comparisons
+
+<input type="radio" name="q9" value="equi">
+Only equality
+
+<br><br>
+
+<p>
+10. Natural join matches on?
+</p>
+
+<input type="radio" name="q10" value="common">
+Common columns
+
+<input type="radio" name="q10" value="primary">
+Primary key only
 
 <br><br>
 
@@ -506,33 +613,26 @@ output.innerHTML = `
 
 function checkQuiz(){
 
-let ans =
-document.querySelector(
-'input[name="q1"]:checked'
-);
+var correct = {q1:"inner", q2:"left", q3:"NULL", q4:"both", q5:"cross", q6:"same", q7:"ON", q8:"equi", q9:"nonequi", q10:"common"};
+var score = 0;
 
-if(!ans){
+for(var k in correct){
 
-alert("Select an answer");
+var sel = document.querySelector('input[name="'+k+'"]:checked');
+
+if(!sel){
+
+alert("Please answer all 10 questions.");
+
 return;
 
 }
 
-if(ans.value==="inner"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
-
-}else{
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
+if(sel.value === correct[k]) score++;
 
 }
+
+document.getElementById("quizResult").innerHTML = "Your Score: "+score+" out of 10";
 
 }
 

@@ -179,22 +179,123 @@ Procedure
 <h2>
 Pre-Test Quiz
 </h2>
-
 <p>
-Which symbol represents Functional Dependency?
+1. FD symbol is?
 </p>
 
-<input
-type="radio"
-name="q1"
-value="fd">
-→
+<input type="radio" name="q1" value="fd">
+Arrow (→)
 
-<input
-type="radio"
-name="q1"
-value="join">
-⨝
+<input type="radio" name="q1" value="join">
+Join (⨝)
+
+<br><br>
+
+<p>
+2. X→Y means X determines?
+</p>
+
+<input type="radio" name="q2" value="Y">
+Y
+
+<input type="radio" name="q2" value="X">
+X
+
+<br><br>
+
+<p>
+3. Trivial FD when Y is subset of?
+</p>
+
+<input type="radio" name="q3" value="trivial">
+X
+
+<input type="radio" name="q3" value="none">
+Neither
+
+<br><br>
+
+<p>
+4. Armstrong axiom includes?
+</p>
+
+<input type="radio" name="q4" value="reflexivity">
+Reflexivity
+
+<input type="radio" name="q4" value="bad">
+Redundancy
+
+<br><br>
+
+<p>
+5. Closure of X is denoted?
+</p>
+
+<input type="radio" name="q5" value="plus">
+X+
+
+<input type="radio" name="q5" value="minus">
+X-
+
+<br><br>
+
+<p>
+6. Candidate key is a?
+</p>
+
+<input type="radio" name="q6" value="minimal">
+Minimal superkey
+
+<input type="radio" name="q6" value="max">
+Maximal key
+
+<br><br>
+
+<p>
+7. In BCNF every determinant is?
+</p>
+
+<input type="radio" name="q7" value="bcnf">
+Candidate key
+
+<input type="radio" name="q7" value="partial">
+Partial key
+
+<br><br>
+
+<p>
+8. FD violated when tuples agree on X but?
+</p>
+
+<input type="radio" name="q8" value="violate">
+Disagree on Y
+
+<input type="radio" name="q8" value="ok">
+Agree on Y
+
+<br><br>
+
+<p>
+9. Lossless decomposition means join equals?
+</p>
+
+<input type="radio" name="q9" value="lossless">
+Original relation
+
+<input type="radio" name="q9" value="empty">
+Empty set
+
+<br><br>
+
+<p>
+10. X→Y and Y→Z implies?
+</p>
+
+<input type="radio" name="q10" value="trans">
+X→Z
+
+<input type="radio" name="q10" value="rev">
+Z→X
 
 <br><br>
 
@@ -309,36 +410,26 @@ Closure:
 
 function checkQuiz(){
 
-let ans =
-document.querySelector(
-'input[name="q1"]:checked'
-);
+var correct = {q1:"fd", q2:"Y", q3:"trivial", q4:"reflexivity", q5:"plus", q6:"minimal", q7:"bcnf", q8:"violate", q9:"lossless", q10:"trans"};
+var score = 0;
 
-if(!ans){
+for(var k in correct){
 
-alert(
-"Select an answer"
-);
+var sel = document.querySelector('input[name="'+k+'"]:checked');
+
+if(!sel){
+
+alert("Please answer all 10 questions.");
 
 return;
 
 }
 
-if(ans.value==="fd"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
-
-}else{
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
+if(sel.value === correct[k]) score++;
 
 }
+
+document.getElementById("quizResult").innerHTML = "Your Score: "+score+" out of 10";
 
 }
 
