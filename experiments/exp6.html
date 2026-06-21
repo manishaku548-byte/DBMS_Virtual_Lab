@@ -220,29 +220,62 @@ Procedure
 Pre-Test Quiz
 </h2>
 
-<p>
-Which SQL command retrieves data?
-</p>
+<div class="quiz-question">
+<p>1. Which SQL command retrieves data?</p>
+<label><input type="radio" name="q1" value="SELECT"> SELECT</label><br>
+<label><input type="radio" name="q1" value="DELETE"> DELETE</label><br>
+</div>
+<div class="quiz-question">
+<p>2. Which command adds a new row?</p>
+<label><input type="radio" name="q2" value="INSERT"> INSERT</label><br>
+<label><input type="radio" name="q2" value="UPDATE"> UPDATE</label><br>
+</div>
+<div class="quiz-question">
+<p>3. Which command modifies existing data?</p>
+<label><input type="radio" name="q3" value="UPDATE"> UPDATE</label><br>
+<label><input type="radio" name="q3" value="DROP"> DROP</label><br>
+</div>
+<div class="quiz-question">
+<p>4. Which command removes an entire table?</p>
+<label><input type="radio" name="q4" value="DROP"> DROP</label><br>
+<label><input type="radio" name="q4" value="DELETE"> DELETE</label><br>
+</div>
+<div class="quiz-question">
+<p>5. Which command removes rows from a table?</p>
+<label><input type="radio" name="q5" value="DELETE"> DELETE</label><br>
+<label><input type="radio" name="q5" value="DROP"> DROP</label><br>
+</div>
+<div class="quiz-question">
+<p>6. Which clause filters rows?</p>
+<label><input type="radio" name="q6" value="WHERE"> WHERE</label><br>
+<label><input type="radio" name="q6" value="GROUP"> GROUP BY</label><br>
+</div>
+<div class="quiz-question">
+<p>7. Which clause sorts the result?</p>
+<label><input type="radio" name="q7" value="ORDER"> ORDER BY</label><br>
+<label><input type="radio" name="q7" value="HAVING"> HAVING</label><br>
+</div>
+<div class="quiz-question">
+<p>8. Which clause groups rows?</p>
+<label><input type="radio" name="q8" value="GROUP"> GROUP BY</label><br>
+<label><input type="radio" name="q8" value="ORDER"> ORDER BY</label><br>
+</div>
+<div class="quiz-question">
+<p>9. Which keyword removes duplicate rows?</p>
+<label><input type="radio" name="q9" value="DISTINCT"> DISTINCT</label><br>
+<label><input type="radio" name="q9" value="UNIQUE"> UNIQUE only in DDL</label><br>
+</div>
+<div class="quiz-question">
+<p>10. Which operation combines rows from two tables?</p>
+<label><input type="radio" name="q10" value="JOIN"> JOIN</label><br>
+<label><input type="radio" name="q10" value="ALTER"> ALTER</label><br>
+</div>
 
-<input
-type="radio"
-name="q1"
-value="SELECT">
-SELECT
-
-<input
-type="radio"
-name="q1"
-value="DELETE">
-DELETE
-
-<br><br>
-
-<button onclick="checkQuiz()">
+<button class="btn" onclick="checkQuiz()">
 Submit
 </button>
 
-<div id="quizResult"></div>
+<div id="quizResult" class="result"></div>
 
 </div>
 
@@ -373,43 +406,10 @@ output.innerHTML =
 
 }
 
-function checkQuiz(){
-
-let ans =
-document.querySelector(
-'input[name="q1"]:checked'
-);
-
-if(!ans){
-
-alert(
-"Select an answer"
-);
-
-return;
-
-}
-
-if(ans.value==="SELECT"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
-
-}
-else{
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
-
-}
-
-}
+function checkQuiz(){ scoreQuiz({ q1:"SELECT", q10:"JOIN", q2:"INSERT", q3:"UPDATE", q4:"DROP", q5:"DELETE", q6:"WHERE", q7:"ORDER", q8:"GROUP", q9:"DISTINCT" }); }
 
 </script>
 
+<script src="../js/quiz.js"></script>
 </body>
 </html>

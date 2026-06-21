@@ -237,38 +237,61 @@ Pre-Test Quiz
 </h2>
 
 <div class="quiz-question">
-
-<p>
-Which level stores physical data?
-</p>
-
-<input
-type="radio"
-name="q1"
-value="External"
->
-External
-
-<input
-type="radio"
-name="q1"
-value="Internal"
->
-Internal
-
+<p>1. Which schema level stores physical data?</p>
+<label><input type="radio" name="q1" value="Internal"> Internal</label><br>
+<label><input type="radio" name="q1" value="External"> External</label><br>
+</div>
+<div class="quiz-question">
+<p>2. External schema represents?</p>
+<label><input type="radio" name="q2" value="External"> User-specific views</label><br>
+<label><input type="radio" name="q2" value="Internal"> Physical storage</label><br>
+</div>
+<div class="quiz-question">
+<p>3. Conceptual schema describes?</p>
+<label><input type="radio" name="q3" value="Conceptual"> Logical structure of database</label><br>
+<label><input type="radio" name="q3" value="Internal"> Disk blocks</label><br>
+</div>
+<div class="quiz-question">
+<p>4. Three-schema architecture has how many levels?</p>
+<label><input type="radio" name="q4" value="3"> Three</label><br>
+<label><input type="radio" name="q4" value="2"> Two</label><br>
+</div>
+<div class="quiz-question">
+<p>5. Logical data independence exists between?</p>
+<label><input type="radio" name="q5" value="Logical"> External and Conceptual</label><br>
+<label><input type="radio" name="q5" value="Physical"> Conceptual and Internal</label><br>
+</div>
+<div class="quiz-question">
+<p>6. Physical data independence exists between?</p>
+<label><input type="radio" name="q6" value="Physical"> Conceptual and Internal</label><br>
+<label><input type="radio" name="q6" value="Logical"> External and Conceptual</label><br>
+</div>
+<div class="quiz-question">
+<p>7. DBA mainly designs at which level?</p>
+<label><input type="radio" name="q7" value="Conceptual"> Conceptual</label><br>
+<label><input type="radio" name="q7" value="External"> External</label><br>
+</div>
+<div class="quiz-question">
+<p>8. Internal schema deals with?</p>
+<label><input type="radio" name="q8" value="Internal"> Physical storage</label><br>
+<label><input type="radio" name="q8" value="External"> User views</label><br>
+</div>
+<div class="quiz-question">
+<p>9. Mappings exist between?</p>
+<label><input type="radio" name="q9" value="Adjacent"> Adjacent levels</label><br>
+<label><input type="radio" name="q9" value="All"> All levels at once</label><br>
+</div>
+<div class="quiz-question">
+<p>10. ANSI-SPARC architecture defines?</p>
+<label><input type="radio" name="q10" value="Three"> Three schema levels</label><br>
+<label><input type="radio" name="q10" value="Two"> Two schema levels</label><br>
 </div>
 
-<button
-class="btn"
-onclick="checkQuiz()"
->
+<button class="btn" onclick="checkQuiz()">
 Submit
 </button>
 
-<div
-id="quizResult"
-class="result"
-></div>
+<div id="quizResult" class="result"></div>
 
 </div>
 
@@ -366,42 +389,10 @@ info.innerHTML=
 
 }
 
-function checkQuiz(){
-
-let answer =
-document.querySelector(
-'input[name="q1"]:checked'
-);
-
-if(!answer){
-
-alert("Select an answer");
-
-return;
-
-}
-
-if(answer.value==="Internal"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
-
-}
-
-else{
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
-
-}
-
-}
+function checkQuiz(){ scoreQuiz({ q1:"Internal", q10:"Three", q2:"External", q3:"Conceptual", q4:"3", q5:"Logical", q6:"Physical", q7:"Conceptual", q8:"Internal", q9:"Adjacent" }); }
 
 </script>
 
+<script src="../js/quiz.js"></script>
 </body>
 </html>

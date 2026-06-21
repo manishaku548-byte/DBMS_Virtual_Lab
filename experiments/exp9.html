@@ -236,25 +236,58 @@ Procedure
 Pre-Test Quiz
 </h2>
 
-<p>
-Which normal form removes partial dependency?
-</p>
+<div class="quiz-question">
+<p>1. Which normal form removes partial dependency?</p>
+<label><input type="radio" name="q1" value="2NF"> 2NF</label><br>
+<label><input type="radio" name="q1" value="1NF"> 1NF</label><br>
+</div>
+<div class="quiz-question">
+<p>2. 1NF requires values to be?</p>
+<label><input type="radio" name="q2" value="atomic"> Atomic (indivisible)</label><br>
+<label><input type="radio" name="q2" value="partial"> Partially dependent</label><br>
+</div>
+<div class="quiz-question">
+<p>3. Transitive dependency is removed in?</p>
+<label><input type="radio" name="q3" value="3NF"> 3NF</label><br>
+<label><input type="radio" name="q3" value="2NF"> 2NF</label><br>
+</div>
+<div class="quiz-question">
+<p>4. BCNF is stricter than?</p>
+<label><input type="radio" name="q4" value="BCNF"> 3NF</label><br>
+<label><input type="radio" name="q4" value="1NF"> 1NF</label><br>
+</div>
+<div class="quiz-question">
+<p>5. Partial dependency is on?</p>
+<label><input type="radio" name="q5" value="partial"> Part of composite key</label><br>
+<label><input type="radio" name="q5" value="atomic"> Atomic attribute</label><br>
+</div>
+<div class="quiz-question">
+<p>6. Normalization mainly reduces?</p>
+<label><input type="radio" name="q6" value="redundancy"> Data redundancy</label><br>
+<label><input type="radio" name="q6" value="MVD"> Multi-valued dependency only</label><br>
+</div>
+<div class="quiz-question">
+<p>7. Denormalization may improve?</p>
+<label><input type="radio" name="q7" value="performance"> Query performance</label><br>
+<label><input type="radio" name="q7" value="redundancy"> Redundancy reduction</label><br>
+</div>
+<div class="quiz-question">
+<p>8. 4NF deals with?</p>
+<label><input type="radio" name="q8" value="MVD"> Multi-valued dependency</label><br>
+<label><input type="radio" name="q8" value="partial"> Partial dependency</label><br>
+</div>
+<div class="quiz-question">
+<p>9. Prime attribute is part of?</p>
+<label><input type="radio" name="q9" value="prime"> Some candidate key</label><br>
+<label><input type="radio" name="q9" value="partial"> Partial key only</label><br>
+</div>
+<div class="quiz-question">
+<p>10. Boyce-Codd Normal Form is abbreviated as?</p>
+<label><input type="radio" name="q10" value="BCNF"> BCNF</label><br>
+<label><input type="radio" name="q10" value="3NF"> 3NF</label><br>
+</div>
 
-<input
-type="radio"
-name="q1"
-value="2NF">
-2NF
-
-<input
-type="radio"
-name="q1"
-value="1NF">
-1NF
-
-<br><br>
-
-<button onclick="checkQuiz()">
+<button class="btn" onclick="checkQuiz()">
 Submit
 </button>
 
@@ -416,43 +449,10 @@ Highest normalization achieved in this simulator.
 
 }
 
-function checkQuiz(){
-
-let ans =
-document.querySelector(
-'input[name="q1"]:checked'
-);
-
-if(!ans){
-
-alert(
-"Select an answer"
-);
-
-return;
-
-}
-
-if(ans.value==="2NF"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
-
-}
-else{
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
-
-}
-
-}
+function checkQuiz(){ scoreQuiz({ q1:"2NF", q10:"BCNF", q2:"atomic", q3:"3NF", q4:"BCNF", q5:"partial", q6:"redundancy", q7:"performance", q8:"MVD", q9:"prime" }); }
 
 </script>
 
+<script src="../js/quiz.js"></script>
 </body>
 </html>

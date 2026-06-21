@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -287,38 +286,61 @@ Pre-Test Quiz
 </h2>
 
 <div class="quiz-question">
-
-<p>
-1. Which system reduces redundancy?
-</p>
-
-<input
-type="radio"
-name="q1"
-value="DBMS"
->
-DBMS
-
-<input
-type="radio"
-name="q1"
-value="File"
->
-File System
-
+<p>1. Which system reduces data redundancy?</p>
+<label><input type="radio" name="q1" value="DBMS"> DBMS</label><br>
+<label><input type="radio" name="q1" value="File"> File System</label><br>
+</div>
+<div class="quiz-question">
+<p>2. Which system provides better concurrent access?</p>
+<label><input type="radio" name="q2" value="DBMS"> DBMS</label><br>
+<label><input type="radio" name="q2" value="File"> File System</label><br>
+</div>
+<div class="quiz-question">
+<p>3. In a file system, data is stored in?</p>
+<label><input type="radio" name="q3" value="Tables"> Tables</label><br>
+<label><input type="radio" name="q3" value="Files"> Files</label><br>
+</div>
+<div class="quiz-question">
+<p>4. DBMS commonly uses which language?</p>
+<label><input type="radio" name="q4" value="SQL"> SQL</label><br>
+<label><input type="radio" name="q4" value="HTML"> HTML</label><br>
+</div>
+<div class="quiz-question">
+<p>5. Which system enforces data integrity constraints?</p>
+<label><input type="radio" name="q5" value="DBMS"> DBMS</label><br>
+<label><input type="radio" name="q5" value="File"> File System</label><br>
+</div>
+<div class="quiz-question">
+<p>6. ACID properties are associated with?</p>
+<label><input type="radio" name="q6" value="DBMS"> DBMS</label><br>
+<label><input type="radio" name="q6" value="File"> File System</label><br>
+</div>
+<div class="quiz-question">
+<p>7. Data redundancy is generally higher in?</p>
+<label><input type="radio" name="q7" value="DBMS"> DBMS</label><br>
+<label><input type="radio" name="q7" value="File"> File System</label><br>
+</div>
+<div class="quiz-question">
+<p>8. Which offers centralized data control?</p>
+<label><input type="radio" name="q8" value="DBMS"> DBMS</label><br>
+<label><input type="radio" name="q8" value="File"> File System</label><br>
+</div>
+<div class="quiz-question">
+<p>9. Security and authorization are better in?</p>
+<label><input type="radio" name="q9" value="DBMS"> DBMS</label><br>
+<label><input type="radio" name="q9" value="File"> File System</label><br>
+</div>
+<div class="quiz-question">
+<p>10. Backup and recovery is easier in?</p>
+<label><input type="radio" name="q10" value="DBMS"> DBMS</label><br>
+<label><input type="radio" name="q10" value="File"> File System</label><br>
 </div>
 
-<button
-class="btn"
-onclick="checkQuiz()"
->
+<button class="btn" onclick="checkQuiz()">
 Submit
 </button>
 
-<div
-id="quizResult"
-class="result"
-></div>
+<div id="quizResult" class="result"></div>
 
 </div>
 
@@ -428,44 +450,10 @@ document.getElementById(
 
 }
 
-function checkQuiz(){
-
-let answer =
-document.querySelector(
-'input[name="q1"]:checked'
-);
-
-if(!answer){
-
-alert(
-"Select an answer"
-);
-
-return;
-
-}
-
-if(answer.value==="DBMS"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
-
-}
-else{
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
-
-}
-
-}
+function checkQuiz(){ scoreQuiz({ q1:"DBMS", q10:"DBMS", q2:"DBMS", q3:"Files", q4:"SQL", q5:"DBMS", q6:"DBMS", q7:"File", q8:"DBMS", q9:"DBMS" }); }
 
 </script>
 
+<script src="../js/quiz.js"></script>
 </body>
 </html>
-```

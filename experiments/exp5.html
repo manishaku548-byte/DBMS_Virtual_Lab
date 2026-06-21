@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -235,31 +234,62 @@ Procedure
 Pre-Test Quiz
 </h2>
 
-<p>
-Which operator selects rows?
-</p>
+<div class="quiz-question">
+<p>1. Which operator selects rows?</p>
+<label><input type="radio" name="q1" value="selection"> Selection</label><br>
+<label><input type="radio" name="q1" value="projection"> Projection</label><br>
+</div>
+<div class="quiz-question">
+<p>2. Which operator selects columns?</p>
+<label><input type="radio" name="q2" value="projection"> Projection</label><br>
+<label><input type="radio" name="q2" value="selection"> Selection</label><br>
+</div>
+<div class="quiz-question">
+<p>3. Symbol σ (sigma) denotes?</p>
+<label><input type="radio" name="q3" value="selection"> Selection</label><br>
+<label><input type="radio" name="q3" value="projection"> Projection</label><br>
+</div>
+<div class="quiz-question">
+<p>4. Symbol π (pi) denotes?</p>
+<label><input type="radio" name="q4" value="projection"> Projection</label><br>
+<label><input type="radio" name="q4" value="union"> Union</label><br>
+</div>
+<div class="quiz-question">
+<p>5. Natural join combines on?</p>
+<label><input type="radio" name="q5" value="common"> Common attributes</label><br>
+<label><input type="radio" name="q5" value="all"> All attributes</label><br>
+</div>
+<div class="quiz-question">
+<p>6. Cartesian product symbol is?</p>
+<label><input type="radio" name="q6" value="product"> × (Cross product)</label><br>
+<label><input type="radio" name="q6" value="union"> ∪ (Union)</label><br>
+</div>
+<div class="quiz-question">
+<p>7. Union requires?</p>
+<label><input type="radio" name="q7" value="compatible"> Union-compatible relations</label><br>
+<label><input type="radio" name="q7" value="any"> Any relations</label><br>
+</div>
+<div class="quiz-question">
+<p>8. Difference operator is?</p>
+<label><input type="radio" name="q8" value="minus"> − (Minus)</label><br>
+<label><input type="radio" name="q8" value="intersect"> ∩ (Intersection)</label><br>
+</div>
+<div class="quiz-question">
+<p>9. Rename operator is denoted by?</p>
+<label><input type="radio" name="q9" value="rho"> ρ (Rho)</label><br>
+<label><input type="radio" name="q9" value="sigma"> σ (Sigma)</label><br>
+</div>
+<div class="quiz-question">
+<p>10. Division is used for queries with?</p>
+<label><input type="radio" name="q10" value="all"> 'For all' conditions</label><br>
+<label><input type="radio" name="q10" value="some"> 'For some' only</label><br>
+</div>
 
-<input
-type="radio"
-name="q1"
-value="selection"
->
-Selection
-
-<input
-type="radio"
-name="q1"
-value="projection"
->
-Projection
-
-<br><br>
-
-<button onclick="checkQuiz()">
+<button class="btn" onclick="checkQuiz()">
 Submit
 </button>
 
-<div id="quizResult"></div>
+<div id="quizResult" class="result"></div>
 
 </div>
 
@@ -374,44 +404,10 @@ result.innerHTML=
 
 }
 
-function checkQuiz(){
-
-let ans =
-document.querySelector(
-'input[name="q1"]:checked'
-);
-
-if(!ans){
-
-alert(
-"Select an answer"
-);
-
-return;
-
-}
-
-if(ans.value==="selection"){
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Correct Answer";
-
-}
-else{
-
-document.getElementById(
-"quizResult"
-).innerHTML =
-"Wrong Answer";
-
-}
-
-}
+function checkQuiz(){ scoreQuiz({ q1:"selection", q10:"all", q2:"projection", q3:"selection", q4:"projection", q5:"common", q6:"product", q7:"compatible", q8:"minus", q9:"rho" }); }
 
 </script>
 
+<script src="../js/quiz.js"></script>
 </body>
 </html>
-```
