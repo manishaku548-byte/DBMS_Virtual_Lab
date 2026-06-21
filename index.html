@@ -1,190 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DBMS Virtual Laboratory</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/experiment.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <title>DBMS Virtual Lab</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
 
-    <!-- Top Orange Line -->
-    <div class="top-bar"></div>
-
-    <!-- Header -->
-    <header class="header">
-
-        <div id="menuBtn" class="logo">
-            ☰
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">DBMS<span>VirtualLab</span></a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#experiments">Experiments</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <div class="vlab-logo">
-            Virtual Labs
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Database Management Systems Virtual Lab</h1>
+            <p>An interactive workspace to practice Relational Database engineering concepts, Structured Query Languages (SQL), and schema design principles parameters.</p>
+            <div class="cta-group">
+                <a href="#experiments" class="btn btn-primary">Explore Experiments</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
         </div>
-
     </header>
 
-    <!-- Sidebar -->
-    <aside id="sidebar" class="sidebar">
+    <main class="main-layout">
+        
+        <section id="experiments" style="margin-bottom: 5rem;">
+            <h2 class="section-title">List of Experiments</h2>
+            <div class="experiment-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-tag">DDL & DML</div>
+                        <h3>Data Definition & Manipulation</h3>
+                        <p>Learn to design fundamental table schemas, specify key integrity constraints, and apply initial value updates safely.</p>
+                    </div>
+                    <a href="experiments/exp1.html" class="card-link">Start Simulation &rarr;</a>
+                </div>
 
-        <div class="sidebar-header">
-            <h2>DBMS</h2>
-            <p>Virtual Laboratory</p>
-        </div>
+                <div class="card">
+                    <div>
+                        <div class="card-tag">SQL Joins</div>
+                        <h3>Complex Query Construction</h3>
+                        <p>Master relational join patterns, filtering conditions, aggregate setups, and multi-table operations.</p>
+                    </div>
+                    <a href="experiments/exp2.html" class="card-link">Start Simulation &rarr;</a>
+                </div>
 
-        <a href="index.html">
-            Introduction
-        </a>
+                <div class="card">
+                    <div>
+                        <div class="card-tag">Normal Forms</div>
+                        <h3>Schema Normalization</h3>
+                        <p>Analyze anomalies and validate relational structures through functional dependencies up to 3NF/BCNF standards.</p>
+                    </div>
+                    <a href="experiments/exp3.html" class="card-link">Start Simulation &rarr;</a>
+                </div>
 
-        <a href="about.html#objective">
-            Objective
-        </a>
-
-        <a href="experiments.html">
-            List of Experiments
-        </a>
-
-        <a href="about.html#target-audience">
-            Target Audience
-        </a>
-
-        <a href="about.html#course-alignment">
-            Course Alignment
-        </a>
-
-        <a href="feedback.html">
-            Feedback
-        </a>
-
-    </aside>
-
-    <!-- Overlay -->
-    <div id="overlay" class="overlay"></div>
-
-    <!-- Department -->
-    <section class="department">
-
-        Computer Science and Engineering
-
-    </section>
-
-    <!-- Main Content -->
-    <main class="content">
-
-        <h1 class="main-title">
-            Virtual Database Management System Laboratory
-        </h1>
-
-        <p class="subtitle">
-            Learn, Simulate and Master Database Management System Concepts Through Interactive Virtual Experiments
-        </p>
-
-        <p class="description">
-
-            The Virtual Database Management System Laboratory is an interactive educational platform designed to help students understand database concepts through theory, visual simulations, SQL execution, normalization analysis, ER modeling, relational algebra, quizzes and performance analysis.
-
-            <br><br>
-
-            The platform provides hands-on learning experiences for Database Architecture, Entity Relationship Modeling, Relational Algebra, SQL Programming, Functional Dependencies, Normalization, Transactions and Concurrency Control.
-
-            <br><br>
-
-            Students can perform experiments, visualize execution, compare results and learn Database Management System concepts interactively.
-
-        </p>
-
-        <section class="stats">
-
-            <div class="stat-card">
-                <h3>10</h3>
-                <p>Experiments</p>
             </div>
-
-            <div class="stat-card">
-                <h3>AKTU</h3>
-                <p>Curriculum</p>
-            </div>
-
         </section>
 
-        <section class="section">
+        <section id="about" style="margin-bottom: 5rem;">
+            <h2 class="section-title">About the Lab</h2>
+            <div style="background: white; padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+                <p style="margin-bottom: 1rem; color: var(--text-main);">This platform operates as an electronic learning portal designed to enable engineering students to model, run, and experiment with complex relational databases without manual software initialization setups.</p>
+                <p>Built with accessibility requirements in mind, it handles standard query interpretations locally with explicit performance traces.</p>
+            </div>
+        </section>
 
-            <h2>
-                List of Experiments
-            </h2>
-
-            <a href="experiments/exp1.html" class="exp-link">
-                Experiment 1 : DBMS vs File System
-            </a>
-
-            <a href="experiments/exp2.html" class="exp-link">
-                Experiment 2 : Three Schema Architecture
-            </a>
-
-            <a href="experiments/exp3.html" class="exp-link">
-                Experiment 3 : ER Diagram Design
-            </a>
-
-            <a href="experiments/exp4.html" class="exp-link">
-                Experiment 4 : ER to Relational Mapping
-            </a>
-
-            <a href="experiments/exp5.html" class="exp-link">
-                Experiment 5 : Relational Algebra
-            </a>
-
-            <a href="experiments/exp6.html" class="exp-link">
-                Experiment 6 : SQL Query Laboratory
-            </a>
-
-            <a href="experiments/exp7.html" class="exp-link">
-                Experiment 7 : SQL Join Visualizer
-            </a>
-
-            <a href="experiments/exp8.html" class="exp-link">
-                Experiment 8 : Functional Dependency
-            </a>
-
-            <a href="experiments/exp9.html" class="exp-link">
-                Experiment 9 : Normalization
-            </a>
-
-            <a href="experiments/exp10.html" class="exp-link">
-                Experiment 10 : Transactions & Concurrency
-            </a>
-
+        <section id="feedback">
+            <h2 class="section-title">User Feedback</h2>
+            <div class="form-container">
+                <form id="labFeedbackForm" onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <label for="userName">Full Name</label>
+                        <input type="text" id="userName" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Institutional Email Address</label>
+                        <input type="email" id="userEmail" class="form-control" placeholder="name@college.edu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackContent">Observations & Comments</label>
+                        <textarea id="feedbackContent" class="form-control" rows="5" placeholder="Share your experience working on these modules..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Submit Feedback Record</button>
+                </form>
+            </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-
-        <h3>
-            DBMS Virtual Laboratory
-        </h3>
-
-        <p>
-            Designed according to AKTU Database Management System Syllabus
-        </p>
-
-        <p>
-            10 Experiments | Interactive Learning Platform
-        </p>
-
-        <p>
-            © 2026 All Rights Reserved
-        </p>
-
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>DBMS Virtual Lab</h4>
+                <p style="font-size: 0.9rem; max-width: 300px; margin-top: 0.5rem;">An open-access interactive computational simulator built to help students study transactional schema operations.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h5>Lab Index</h5>
+                    <ul>
+                        <li><a href="#experiments">All Experiments</a></li>
+                        <li><a href="#about">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="#">Reference Manual</a></li>
+                        <li><a href="https://github.com" target="_blank">GitHub Mirror</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Database Systems Virtual Lab Portal. All educational rights preserved.</p>
+            <p>Designed for academic deployment compatibility.</p>
+        </div>
     </footer>
 
-    <script src="js/main.js"></script>
-
 </body>
-
 </html>
