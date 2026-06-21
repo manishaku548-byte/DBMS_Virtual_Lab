@@ -257,58 +257,25 @@ Procedure
 Pre-Test Quiz
 </h2>
 
-<div class="quiz-question">
-<p>1. An entity is converted into a?</p>
-<label><input type="radio" name="q1" value="Table"> Table</label><br>
-<label><input type="radio" name="q1" value="Column"> Column</label><br>
-</div>
-<div class="quiz-question">
-<p>2. An attribute is converted into a?</p>
-<label><input type="radio" name="q2" value="Column"> Column</label><br>
-<label><input type="radio" name="q2" value="Table"> Table</label><br>
-</div>
-<div class="quiz-question">
-<p>3. M:N relationship requires a?</p>
-<label><input type="radio" name="q3" value="Junction"> Junction table</label><br>
-<label><input type="radio" name="q3" value="Single"> Single table only</label><br>
-</div>
-<div class="quiz-question">
-<p>4. 1:1 relationship may use?</p>
-<label><input type="radio" name="q4" value="Two"> One or two tables</label><br>
-<label><input type="radio" name="q4" value="Many"> Many junction tables</label><br>
-</div>
-<div class="quiz-question">
-<p>5. Weak entity key combines partial key with?</p>
-<label><input type="radio" name="q5" value="Combined"> Owner entity key</label><br>
-<label><input type="radio" name="q5" value="Column"> Column name only</label><br>
-</div>
-<div class="quiz-question">
-<p>6. Multivalued attribute becomes?</p>
-<label><input type="radio" name="q6" value="Separate"> Separate table</label><br>
-<label><input type="radio" name="q6" value="Column"> Single column</label><br>
-</div>
-<div class="quiz-question">
-<p>7. Relationship with attributes needs?</p>
-<label><input type="radio" name="q7" value="Separate"> Separate relation</label><br>
-<label><input type="radio" name="q7" value="Ignore"> No mapping</label><br>
-</div>
-<div class="quiz-question">
-<p>8. Foreign key references?</p>
-<label><input type="radio" name="q8" value="Primary"> Primary key</label><br>
-<label><input type="radio" name="q8" value="Index"> Index only</label><br>
-</div>
-<div class="quiz-question">
-<p>9. Composite attribute maps to?</p>
-<label><input type="radio" name="q9" value="Multiple"> Multiple columns</label><br>
-<label><input type="radio" name="q9" value="Single"> Single column</label><br>
-</div>
-<div class="quiz-question">
-<p>10. ISA hierarchy is mapped using?</p>
-<label><input type="radio" name="q10" value="Hierarchy"> Superclass-subclass tables</label><br>
-<label><input type="radio" name="q10" value="Single"> One table without type</label><br>
-</div>
+<p>
+An Entity is converted into:
+</p>
 
-<button class="btn" onclick="checkQuiz()">
+<input
+type="radio"
+name="q1"
+value="Table">
+Table
+
+<input
+type="radio"
+name="q1"
+value="Column">
+Column
+
+<br><br>
+
+<button onclick="checkQuiz()">
 Submit
 </button>
 
@@ -438,10 +405,43 @@ document.getElementById(
 
 }
 
-function checkQuiz(){ scoreQuiz({ q1:"Table", q10:"Hierarchy", q2:"Column", q3:"Junction", q4:"Two", q5:"Combined", q6:"Separate", q7:"Separate", q8:"Primary", q9:"Multiple" }); }
+function checkQuiz(){
+
+let ans =
+document.querySelector(
+'input[name="q1"]:checked'
+);
+
+if(!ans){
+
+alert(
+"Select an answer"
+);
+
+return;
+
+}
+
+if(ans.value==="Table"){
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Correct Answer";
+
+}
+else{
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Wrong Answer";
+
+}
+
+}
 
 </script>
 
-<script src="../js/quiz.js"></script>
 </body>
 </html>

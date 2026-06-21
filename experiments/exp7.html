@@ -272,58 +272,19 @@ Procedure
 Pre-Test Quiz
 </h2>
 
-<div class="quiz-question">
-<p>1. Which join returns only matching records?</p>
-<label><input type="radio" name="q1" value="inner"> INNER JOIN</label><br>
-<label><input type="radio" name="q1" value="left"> LEFT JOIN</label><br>
-</div>
-<div class="quiz-question">
-<p>2. LEFT JOIN returns all rows from?</p>
-<label><input type="radio" name="q2" value="left"> Left table</label><br>
-<label><input type="radio" name="q2" value="inner"> Matching rows only</label><br>
-</div>
-<div class="quiz-question">
-<p>3. Non-matching rows in outer join show?</p>
-<label><input type="radio" name="q3" value="NULL"> NULL values</label><br>
-<label><input type="radio" name="q3" value="Error"> Error</label><br>
-</div>
-<div class="quiz-question">
-<p>4. FULL OUTER JOIN returns rows from?</p>
-<label><input type="radio" name="q4" value="both"> Both tables</label><br>
-<label><input type="radio" name="q4" value="inner"> Matching rows only</label><br>
-</div>
-<div class="quiz-question">
-<p>5. CROSS JOIN produces?</p>
-<label><input type="radio" name="q5" value="cross"> Cartesian product</label><br>
-<label><input type="radio" name="q5" value="common"> Natural join</label><br>
-</div>
-<div class="quiz-question">
-<p>6. Self join joins?</p>
-<label><input type="radio" name="q6" value="same"> Same table with alias</label><br>
-<label><input type="radio" name="q6" value="two"> Two unrelated tables</label><br>
-</div>
-<div class="quiz-question">
-<p>7. Join condition is written in?</p>
-<label><input type="radio" name="q7" value="ON"> ON clause</label><br>
-<label><input type="radio" name="q7" value="SELECT"> SELECT list only</label><br>
-</div>
-<div class="quiz-question">
-<p>8. Equi join uses?</p>
-<label><input type="radio" name="q8" value="equi"> Equality (=) operator</label><br>
-<label><input type="radio" name="q8" value="nonequi"> Inequality only</label><br>
-</div>
-<div class="quiz-question">
-<p>9. Non-equi join uses?</p>
-<label><input type="radio" name="q9" value="nonequi"> Comparison other than =</label><br>
-<label><input type="radio" name="q9" value="equi"> Only equality</label><br>
-</div>
-<div class="quiz-question">
-<p>10. Natural join matches on?</p>
-<label><input type="radio" name="q10" value="common"> Common column names</label><br>
-<label><input type="radio" name="q10" value="primary"> Primary key only</label><br>
-</div>
+<p>
+Which join returns only matching records?
+</p>
 
-<button class="btn" onclick="checkQuiz()">
+<input type="radio" name="q1" value="inner">
+INNER JOIN
+
+<input type="radio" name="q1" value="left">
+LEFT JOIN
+
+<br><br>
+
+<button onclick="checkQuiz()">
 Submit
 </button>
 
@@ -543,10 +504,39 @@ output.innerHTML = `
 
 }
 
-function checkQuiz(){ scoreQuiz({ q1:"inner", q10:"common", q2:"left", q3:"NULL", q4:"both", q5:"cross", q6:"same", q7:"ON", q8:"equi", q9:"nonequi" }); }
+function checkQuiz(){
+
+let ans =
+document.querySelector(
+'input[name="q1"]:checked'
+);
+
+if(!ans){
+
+alert("Select an answer");
+return;
+
+}
+
+if(ans.value==="inner"){
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Correct Answer";
+
+}else{
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Wrong Answer";
+
+}
+
+}
 
 </script>
 
-<script src="../js/quiz.js"></script>
 </body>
 </html>
