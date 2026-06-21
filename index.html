@@ -3,127 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DBMS Virtual Lab | Home Workspace</title>
+    <title>DBMS Virtual Lab</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
     <header class="header-nav">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <div class="nav-brand-logo">DBMS<span>VirtualLab</span></div>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="./index.html" class="active">Home</a></li>
-                    <li class="nav-item"><a href="./experiments.html">Experiments</a></li>
-                    <li class="nav-item"><a href="./about.html">About</a></li>
-                    <li class="nav-item"><a href="./feedback.html">Feedback</a></li>
-                </ul>
-            </nav>
-        </div>
+        Database Management Systems Virtual Lab
     </header>
 
-    <section class="hero-block">
-        <div class="hero-wrapper">
-            <h1>Database Management Systems Virtual Lab</h1>
-            <p>An elite, interactive computational space dedicated to learning entity relationships, relational algebra, structural execution trees, schema normalizations, and high-throughput transactional queries.</p>
-            <div>
-                <a href="./experiments.html" class="action-btn btn-solid">Explore Experiments</a>
-                <a href="./about.html" class="action-btn btn-outline">Read Lab Documentation</a>
-            </div>
-        </div>
-    </section>
+    <div class="wrapper">
+        <nav class="sidebar">
+            <a href="./index.html" class="active">Objective / Aim</a>
+            <a href="./experiments.html">List of Experiments</a>
+            <a href="./about.html">About Lab</a>
+            <a href="./feedback.html">User Feedback</a>
+        </nav>
 
-    <main class="lab-main-content">
-
-        <section id="experiments-section" style="margin-bottom: 5.5rem;">
-            <div class="section-header-group">
-                <h2 class="section-main-title">List of Experiments</h2>
-            </div>
-            <div class="card-grid-system">
-                
-                <article class="lab-card">
-                    <div>
-                        <div class="lab-card-meta">Module 01</div>
-                        <h3>Data Definition & Schema Instantiation</h3>
-                        <p>Analyze structural operations via physical relations using declarative DDL expressions. Establish domain domains, structural keys, and explicit operational isolation constraints.</p>
-                    </div>
-                    <a href="experiments/exp1.html" class="action-btn btn-solid" style="font-size:0.8rem; padding: 0.5rem 1rem; margin-top:1rem; text-align:center;">Initialize Lab Environment</a>
-                </article>
-
-                <article class="lab-card">
-                    <div>
-                        <div class="lab-card-meta">Module 02</div>
-                        <h3>Relational Algebra & Selection Projections</h3>
-                        <p>Map conditional criteria to relational algebra operations. Work with intersections, multi-table cross-products, union logic layers, and Cartesian transformations.</p>
-                    </div>
-                    <a href="experiments/exp2.html" class="action-btn btn-solid" style="font-size:0.8rem; padding: 0.5rem 1rem; margin-top:1rem; text-align:center;">Initialize Lab Environment</a>
-                </article>
-
-                <article class="lab-card">
-                    <div>
-                        <div class="lab-card-meta">Module 03</div>
-                        <h3>Functional Dependencies & Normal Forms</h3>
-                        <p>Evaluate mathematical relations to minimize operational mutations. Run validation algorithms to satisfy 1NF, 2NF, 3NF, and Boyce-Codd normal forms.</p>
-                    </div>
-                    <a href="experiments/exp3.html" class="action-btn btn-solid" style="font-size:0.8rem; padding: 0.5rem 1rem; margin-top:1rem; text-align:center;">Initialize Lab Environment</a>
-                </article>
-
-            </div>
-        </section>
-
-        <section id="about-section" style="margin-bottom: 5.5rem;">
-            <div class="section-header-group">
-                <h2 class="section-main-title">About the Lab System</h2>
-            </div>
-            <div style="border: 1px solid var(--border-accent); border-left: 4px solid var(--accent-blue); padding: 2rem; background-color: var(--bg-light); border-radius: var(--radius-standard);">
-                <p style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-charcoal);">This Virtual Lab architecture serves as a sandbox to experiment with structural database instances safely within modern client browsers, completely eliminating heavy initialization setups.</p>
-                <p style="font-size: 0.95rem; color: var(--text-muted);">Engineered with automated parsing metrics, users can quickly verify normalization traces, evaluate tree complexity, and monitor schema compilation operations in real time.</p>
-            </div>
-        </section>
-
-        <section id="feedback-section">
-            <div class="section-header-group">
-                <h2 class="section-main-title">User Evaluation Record</h2>
-            </div>
-            <div class="academic-form-block">
-                <form id="labFeedbackForm" onsubmit="event.preventDefault(); alert('Feedback recorded inside the new UI style skin!');">
-                    <div class="form-row-group">
-                        <label for="studentName">Student Candidate Name</label>
-                        <input type="text" id="studentName" class="input-field-element" placeholder="Provide full academic name" required>
-                    </div>
-                    <div class="form-row-group">
-                        <label for="studentEmail">Academic Institution Email Address</label>
-                        <input type="email" id="studentEmail" class="input-field-element" placeholder="identity@institution.edu" required>
-                    </div>
-                    <div class="form-row-group">
-                        <label for="feedbackMessage">Observations, Traces & Comments</label>
-                        <textarea id="feedbackMessage" class="input-field-element" rows="5" placeholder="Specify observations on parser execution or simulation accuracy..." required></textarea>
-                    </div>
-                    <button type="submit" class="action-btn btn-solid" style="width: 100%; border: none; margin-top: 0.5rem;">Log Feedback Block</button>
-                </form>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="academic-footer">
-        <div class="footer-top-layout">
-            <div class="footer-info-column">
-                <h3>DBMS Virtual Lab</h3>
-                <p style="color: #94a3b8; margin-top: 0.5rem; line-height: 1.5;">An official computational engineering environment deployed to facilitate local interpretation tests of transactional logical matrices.</p>
-            </div>
-            <div class="footer-links-column">
-                <h4>System Directory</h4>
-                <p style="font-size:0.85rem;"><a href="./experiments.html" style="color: #94a3b8;">All Lab Modules</a></p>
-                <p style="font-size:0.85rem;"><a href="./about.html" style="color: #94a3b8;">Architecture Documentation</a></p>
-            </div>
-        </div>
-        <div style="max-width: 1200px; margin: 2rem auto 0; padding-top:1.5rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; color:#94a3b8; display:flex; justify-content:space-between;">
-            <p>&copy; 2026 Database Systems Virtual Laboratory Portal. All educational rights preserved.</p>
-        </div>
-    </footer>
+        <main class="main-content">
+            <h2 class="section-title">Welcome to DBMS Virtual Lab</h2>
+            <p style="margin-bottom: 1rem; line-height: 1.6;">
+                An interactive computational space dedicated to learning entity relationships, relational algebra, structural execution trees, schema normalizations, and high-throughput transactional queries.
+            </p>
+            <p style="line-height: 1.6; color: #6c757d;">
+                Select any tab from the left sidebar panel to navigate through modules, operational docs, and evaluation logs.
+            </p>
+        </main>
+    </div>
 
 </body>
 </html>
