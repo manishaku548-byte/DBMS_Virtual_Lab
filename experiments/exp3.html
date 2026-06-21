@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Experiment 3 - ER Diagram Designer</title>
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/experiment.css">
+
+<style>
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px;
+}
+
+.section{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.section h2{
+color:#1565c0;
+margin-bottom:15px;
+}
+
+input{
+padding:10px;
+margin:10px;
+width:250px;
+}
+
+button{
+padding:10px 20px;
+background:#1565c0;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.canvas{
+margin-top:20px;
+padding:20px;
+background:#f5f5f5;
+border-radius:10px;
+min-height:250px;
+}
+
+.entity{
+padding:12px;
+background:#e3f2fd;
+border:2px solid #1565c0;
+margin:10px;
+display:inline-block;
+border-radius:8px;
+font-weight:bold;
+}
+
+.attribute{
+padding:10px;
+background:#fff3cd;
+border:2px solid orange;
+margin:10px;
+display:inline-block;
+border-radius:50px;
+}
+
+.relationship{
+padding:12px;
+background:#d4edda;
+border:2px solid green;
+margin:10px;
+display:inline-block;
+transform:rotate(45deg);
+width:100px;
+height:100px;
+text-align:center;
+line-height:75px;
+}
+
+.quiz-result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar"></div>
+
+<div class="header">
+
+<a href="javascript:history.back()">
+← Back
+</a>
+
+<h2>
+Experiment 3
+</h2>
+
+</div>
+
+<div class="container">
+
+<div class="section">
+
+<h1>
+ER Diagram Designer
+</h1>
+
+</div>
+
+<div class="section">
+
+<h2>
+Aim
+</h2>
+
+<p>
+To understand Entity Relationship Modeling and design ER Diagrams.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+Objective
+</h2>
+
+<ul>
+
+<li>Understand Entity.</li>
+
+<li>Understand Attribute.</li>
+
+<li>Understand Relationship.</li>
+
+<li>Create ER Models.</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>
+Theory
+</h2>
+
+<p>
+
+Entity Relationship Model is a high-level conceptual model used in database design.
+
+Entity = Object
+
+Attribute = Property
+
+Relationship = Association between entities
+
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+ER Diagram Simulator</h2>
+
+<input
+type="text"
+id="entityInput"
+placeholder="Entity Name">
+
+<button onclick="addEntity()">
+Add Entity
+</button>
+
+<br>
+
+<input
+type="text"
+id="attributeInput"
+placeholder="Attribute Name">
+
+<button onclick="addAttribute()">
+Add Attribute
+</button>
+
+<br>
+
+<input
+type="text"
+id="relationInput"
+placeholder="Relationship Name">
+
+<button onclick="addRelationship()">
+Add Relationship
+</button>
+
+<div id="canvas" class="canvas">
+
+<h3>ER Diagram Workspace</h3>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Procedure
+</h2>
+
+<ol>
+
+<li>Identify entities.</li>
+
+<li>Identify attributes.</li>
+
+<li>Identify relationships.</li>
+
+<li>Create ER Diagram.</li>
+
+<li>Validate model.</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Pre-Test Quiz
+</h2>
+
+<p>
+Which ER component represents an object?
+</p>
+
+<input type="radio" name="q1" value="Entity"> Entity
+
+<input type="radio" name="q1" value="Attribute"> Attribute
+
+<br><br>
+
+<button onclick="checkQuiz()">
+Submit
+</button>
+
+<div id="quizResult" class="quiz-result"></div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Assignment
+</h2>
+
+<ol>
+
+<li>Design ER Diagram for Library Management System.</li>
+
+<li>Design ER Diagram for Hospital Management System.</li>
+
+<li>Design ER Diagram for Student Database.</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Viva Questions
+</h2>
+
+<ol>
+
+<li>What is Entity?</li>
+
+<li>What is Attribute?</li>
+
+<li>What is Relationship?</li>
+
+<li>What is Cardinality?</li>
+
+<li>What is Participation Constraint?</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+References
+</h2>
+
+<ul>
+
+<li>Korth Database System Concepts</li>
+
+<li>Elmasri & Navathe</li>
+
+<li>AKTU DBMS Syllabus</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script>
+
+function addEntity(){
+
+let value =
+document.getElementById(
+"entityInput"
+).value;
+
+if(value==="") return;
+
+document.getElementById(
+"canvas"
+).innerHTML +=
+`<div class="entity">${value}</div>`;
+
+document.getElementById(
+"entityInput"
+).value="";
+
+}
+
+function addAttribute(){
+
+let value =
+document.getElementById(
+"attributeInput"
+).value;
+
+if(value==="") return;
+
+document.getElementById(
+"canvas"
+).innerHTML +=
+`<div class="attribute">${value}</div>`;
+
+document.getElementById(
+"attributeInput"
+).value="";
+
+}
+
+function addRelationship(){
+
+let value =
+document.getElementById(
+"relationInput"
+).value;
+
+if(value==="") return;
+
+document.getElementById(
+"canvas"
+).innerHTML +=
+`<div class="relationship"><span style="display:inline-block;transform:rotate(-45deg);">${value}</span></div>`;
+
+document.getElementById(
+"relationInput"
+).value="";
+
+}
+
+function checkQuiz(){
+
+let ans =
+document.querySelector(
+'input[name="q1"]:checked'
+);
+
+if(!ans){
+
+alert("Select an answer");
+
+return;
+
+}
+
+if(ans.value==="Entity"){
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Correct Answer";
+
+}else{
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Wrong Answer";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

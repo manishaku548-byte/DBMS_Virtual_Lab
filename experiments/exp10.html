@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Experiment 10 - Transaction Processing & Concurrency Control</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px;
+}
+
+.section{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.section h2{
+color:#1565c0;
+margin-bottom:15px;
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+background:#1565c0;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.output{
+margin-top:20px;
+padding:20px;
+background:#f5f5f5;
+border-radius:10px;
+min-height:120px;
+}
+
+.transaction-box{
+padding:15px;
+margin:10px 0;
+background:#e3f2fd;
+border-left:5px solid #1565c0;
+}
+
+.result{
+margin-top:15px;
+font-size:20px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar"></div>
+
+<div class="header">
+
+<a href="javascript:history.back()">
+← Back
+</a>
+
+<h2>
+Experiment 10
+</h2>
+
+</div>
+
+<div class="container">
+
+<div class="section">
+
+<h1>
+Transaction Processing & Concurrency Control Simulator
+</h1>
+
+</div>
+
+<div class="section">
+
+<h2>
+Aim
+</h2>
+
+<p>
+To understand transaction processing and concurrency control in DBMS.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+Theory
+</h2>
+
+<p>
+
+A transaction is a logical unit of work.
+
+Transactions follow ACID properties:
+
+</p>
+
+<ul>
+
+<li>Atomicity</li>
+
+<li>Consistency</li>
+
+<li>Isolation</li>
+
+<li>Durability</li>
+
+</ul>
+
+<p>
+
+Concurrency Control ensures multiple transactions execute safely without data inconsistency.
+
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+Transaction Simulator
+</h2>
+
+<div class="transaction-box">
+
+Transaction T1:
+Read(A)
+Write(A)
+
+</div>
+
+<div class="transaction-box">
+
+Transaction T2:
+Read(A)
+Write(A)
+
+</div>
+
+<button onclick="serialSchedule()">
+Serial Schedule
+</button>
+
+<button onclick="concurrentSchedule()">
+Concurrent Schedule
+</button>
+
+<button onclick="deadlockDemo()">
+Deadlock Demo
+</button>
+
+<div id="output" class="output">
+
+Select an operation
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Procedure
+</h2>
+
+<ol>
+
+<li>Study transactions.</li>
+
+<li>Observe serial execution.</li>
+
+<li>Observe concurrent execution.</li>
+
+<li>Analyze conflicts.</li>
+
+<li>Understand deadlocks.</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Pre-Test Quiz
+</h2>
+
+<p>
+Which property ensures a transaction is completed fully or not at all?
+</p>
+
+<input
+type="radio"
+name="q1"
+value="Atomicity">
+Atomicity
+
+<input
+type="radio"
+name="q1"
+value="Isolation">
+Isolation
+
+<br><br>
+
+<button onclick="checkQuiz()">
+Submit
+</button>
+
+<div id="quizResult" class="result"></div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Assignment
+</h2>
+
+<ol>
+
+<li>Explain ACID properties.</li>
+
+<li>Differentiate Serial and Concurrent schedules.</li>
+
+<li>Explain Deadlock.</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Viva Questions
+</h2>
+
+<ol>
+
+<li>What is a Transaction?</li>
+
+<li>What is Atomicity?</li>
+
+<li>What is Consistency?</li>
+
+<li>What is Isolation?</li>
+
+<li>What is Deadlock?</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+References
+</h2>
+
+<ul>
+
+<li>Korth Database System Concepts</li>
+
+<li>Elmasri and Navathe</li>
+
+<li>AKTU DBMS Syllabus</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script>
+
+function serialSchedule(){
+
+document.getElementById(
+"output"
+).innerHTML =
+`
+<h3>Serial Schedule</h3>
+
+T1 Executes Completely
+
+<br><br>
+
+Then
+
+<br><br>
+
+T2 Executes Completely
+
+<br><br>
+
+Result:
+No Conflict
+`;
+
+}
+
+function concurrentSchedule(){
+
+document.getElementById(
+"output"
+).innerHTML =
+`
+<h3>Concurrent Schedule</h3>
+
+T1 Read(A)
+
+<br>
+
+T2 Read(A)
+
+<br>
+
+T1 Write(A)
+
+<br>
+
+T2 Write(A)
+
+<br><br>
+
+Result:
+Possible Conflict
+`;
+
+}
+
+function deadlockDemo(){
+
+document.getElementById(
+"output"
+).innerHTML =
+`
+<h3>Deadlock Example</h3>
+
+T1 Holds Lock A
+
+<br>
+
+Waiting for Lock B
+
+<br><br>
+
+T2 Holds Lock B
+
+<br>
+
+Waiting for Lock A
+
+<br><br>
+
+Result:
+Deadlock Occurred
+`;
+
+}
+
+function checkQuiz(){
+
+let ans =
+document.querySelector(
+'input[name="q1"]:checked'
+);
+
+if(!ans){
+
+alert(
+"Select an answer"
+);
+
+return;
+
+}
+
+if(ans.value==="Atomicity"){
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Correct Answer";
+
+}
+else{
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Wrong Answer";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

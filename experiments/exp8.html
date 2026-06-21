@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Experiment 8 - Functional Dependency Analyzer</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px;
+}
+
+.section{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.section h2{
+color:#1565c0;
+margin-bottom:15px;
+}
+
+input{
+padding:10px;
+width:300px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+background:#1565c0;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.output{
+margin-top:20px;
+padding:20px;
+background:#f5f5f5;
+border-radius:10px;
+min-height:100px;
+}
+
+.result{
+margin-top:15px;
+font-size:20px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar"></div>
+
+<div class="header">
+
+<a href="javascript:history.back()">
+← Back
+</a>
+
+<h2>
+Experiment 8
+</h2>
+
+</div>
+
+<div class="container">
+
+<div class="section">
+
+<h1>
+Functional Dependency & Candidate Key Analyzer
+</h1>
+
+</div>
+
+<div class="section">
+
+<h2>
+Aim
+</h2>
+
+<p>
+To study Functional Dependencies and determine Candidate Keys.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+Theory
+</h2>
+
+<p>
+
+A Functional Dependency (FD) describes a relationship between attributes.
+
+Example:
+
+A → B
+
+means A functionally determines B.
+
+Candidate Keys uniquely identify tuples in a relation.
+
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+FD Simulator
+</h2>
+
+<input
+type="text"
+id="fdInput"
+placeholder="Example: A->B, B->C">
+
+<br>
+
+<input
+type="text"
+id="attrInput"
+placeholder="Attributes: A,B,C">
+
+<br>
+
+<button onclick="analyzeFD()">
+Analyze
+</button>
+
+<div
+id="output"
+class="output">
+Result appears here
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Procedure
+</h2>
+
+<ol>
+
+<li>Enter Functional Dependencies.</li>
+
+<li>Enter Attributes.</li>
+
+<li>Analyze Closure.</li>
+
+<li>Identify Candidate Keys.</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Pre-Test Quiz
+</h2>
+
+<p>
+Which symbol represents Functional Dependency?
+</p>
+
+<input
+type="radio"
+name="q1"
+value="fd">
+→
+
+<input
+type="radio"
+name="q1"
+value="join">
+⨝
+
+<br><br>
+
+<button onclick="checkQuiz()">
+Submit
+</button>
+
+<div id="quizResult" class="result"></div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Assignment
+</h2>
+
+<ol>
+
+<li>Find Closure of A.</li>
+
+<li>Find Candidate Key for given relation.</li>
+
+<li>Explain Functional Dependency.</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Viva Questions
+</h2>
+
+<ol>
+
+<li>What is Functional Dependency?</li>
+
+<li>What is Candidate Key?</li>
+
+<li>What is Closure?</li>
+
+<li>What is Super Key?</li>
+
+<li>Difference between Candidate Key and Primary Key?</li>
+
+</ol>
+
+</div>
+
+</div>
+
+<script>
+
+function analyzeFD(){
+
+let fd =
+document.getElementById(
+"fdInput"
+).value;
+
+let attr =
+document.getElementById(
+"attrInput"
+).value;
+
+if(fd==="" || attr===""){
+
+alert(
+"Enter FD and Attributes"
+);
+
+return;
+
+}
+
+let attrs =
+attr.split(",");
+
+let candidateKey =
+attrs[0].trim();
+
+document.getElementById(
+"output"
+).innerHTML =
+`
+<h3>Analysis Result</h3>
+
+<p>
+Functional Dependencies:
+${fd}
+</p>
+
+<p>
+Attributes:
+${attr}
+</p>
+
+<p>
+Candidate Key (Demo):
+<b>${candidateKey}</b>
+</p>
+
+<p>
+Closure:
+<b>${candidateKey}+ = ${attr}</b>
+</p>
+`;
+
+}
+
+function checkQuiz(){
+
+let ans =
+document.querySelector(
+'input[name="q1"]:checked'
+);
+
+if(!ans){
+
+alert(
+"Select an answer"
+);
+
+return;
+
+}
+
+if(ans.value==="fd"){
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Correct Answer";
+
+}else{
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Wrong Answer";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

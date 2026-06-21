@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Experiment 2 - Three Schema Architecture</title>
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/experiment.css">
+
+<style>
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px;
+}
+
+.section{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.section h2{
+color:#1565c0;
+margin-bottom:15px;
+}
+
+.schema-box{
+padding:25px;
+margin:20px 0;
+border-radius:10px;
+cursor:pointer;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+transition:.3s;
+}
+
+.external{
+background:#e3f2fd;
+}
+
+.conceptual{
+background:#fff3cd;
+}
+
+.internal{
+background:#d4edda;
+}
+
+.schema-info{
+margin-top:20px;
+padding:20px;
+background:#f8f9fa;
+border-left:5px solid #1565c0;
+display:none;
+}
+
+.quiz-question{
+margin:15px 0;
+}
+
+.btn{
+padding:10px 20px;
+background:#1565c0;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:5px;
+}
+
+.result{
+margin-top:15px;
+font-size:20px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar"></div>
+
+<div class="header">
+
+<a href="javascript:history.back()">
+← Back
+</a>
+
+<h2>
+Experiment 2
+</h2>
+
+</div>
+
+<div class="container">
+
+<div class="section">
+
+<h1>
+Three Schema Architecture
+</h1>
+
+</div>
+
+<div class="section">
+
+<h2>
+Aim
+</h2>
+
+<p>
+To study the Three Schema Architecture of DBMS.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+Objective
+</h2>
+
+<ul>
+
+<li>Understand External Schema.</li>
+
+<li>Understand Conceptual Schema.</li>
+
+<li>Understand Internal Schema.</li>
+
+<li>Learn Data Independence.</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>
+Theory
+</h2>
+
+<p>
+
+The Three Schema Architecture separates user applications from physical database storage.
+
+It consists of:
+
+<ul>
+
+<li>External Level</li>
+
+<li>Conceptual Level</li>
+
+<li>Internal Level</li>
+
+</ul>
+
+This architecture provides logical and physical data independence.
+
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+Interactive Simulator
+</h2>
+
+<p>
+Click on any schema level.
+</p>
+
+<div
+class="schema-box external"
+onclick="showInfo('external')"
+>
+External Schema
+</div>
+
+<div
+class="schema-box conceptual"
+onclick="showInfo('conceptual')"
+>
+Conceptual Schema
+</div>
+
+<div
+class="schema-box internal"
+onclick="showInfo('internal')"
+>
+Internal Schema
+</div>
+
+<div
+id="schemaInfo"
+class="schema-info"
+></div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Procedure
+</h2>
+
+<ol>
+
+<li>Study three levels.</li>
+
+<li>Observe user view.</li>
+
+<li>Observe logical view.</li>
+
+<li>Observe physical storage view.</li>
+
+<li>Analyze data independence.</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Pre-Test Quiz
+</h2>
+
+<div class="quiz-question">
+
+<p>
+Which level stores physical data?
+</p>
+
+<input
+type="radio"
+name="q1"
+value="External"
+>
+External
+
+<input
+type="radio"
+name="q1"
+value="Internal"
+>
+Internal
+
+</div>
+
+<button
+class="btn"
+onclick="checkQuiz()"
+>
+Submit
+</button>
+
+<div
+id="quizResult"
+class="result"
+></div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Assignment
+</h2>
+
+<ol>
+
+<li>Explain Three Schema Architecture.</li>
+
+<li>Differentiate external and conceptual schema.</li>
+
+<li>Explain data independence.</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Viva Questions
+</h2>
+
+<ol>
+
+<li>What is External Schema?</li>
+
+<li>What is Conceptual Schema?</li>
+
+<li>What is Internal Schema?</li>
+
+<li>What is Logical Data Independence?</li>
+
+<li>What is Physical Data Independence?</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+References
+</h2>
+
+<ul>
+
+<li>Korth Database System Concepts</li>
+
+<li>Elmasri and Navathe</li>
+
+<li>AKTU DBMS Syllabus</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script>
+
+function showInfo(type){
+
+const info =
+document.getElementById(
+"schemaInfo"
+);
+
+info.style.display="block";
+
+if(type==="external"){
+
+info.innerHTML=
+"<h3>External Schema</h3><p>User specific views of database.</p>";
+
+}
+
+else if(type==="conceptual"){
+
+info.innerHTML=
+"<h3>Conceptual Schema</h3><p>Logical structure of complete database.</p>";
+
+}
+
+else{
+
+info.innerHTML=
+"<h3>Internal Schema</h3><p>Physical storage representation of data.</p>";
+
+}
+
+}
+
+function checkQuiz(){
+
+let answer =
+document.querySelector(
+'input[name="q1"]:checked'
+);
+
+if(!answer){
+
+alert("Select an answer");
+
+return;
+
+}
+
+if(answer.value==="Internal"){
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Correct Answer";
+
+}
+
+else{
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Wrong Answer";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

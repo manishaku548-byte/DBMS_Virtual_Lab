@@ -1,0 +1,471 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Experiment 1 - DBMS vs File System</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px;
+}
+
+.section{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.section h2{
+color:#1565c0;
+margin-bottom:15px;
+}
+
+.quiz-question{
+margin:15px 0;
+}
+
+.btn{
+padding:10px 20px;
+background:#1565c0;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:5px;
+}
+
+.result{
+margin-top:15px;
+font-size:20px;
+font-weight:bold;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+table,th,td{
+border:1px solid #ddd;
+}
+
+th,td{
+padding:12px;
+text-align:center;
+}
+
+.simulator{
+background:#f5f5f5;
+padding:20px;
+border-radius:10px;
+}
+
+input{
+padding:10px;
+margin:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar"></div>
+
+<div class="header">
+
+<a href="javascript:history.back()">
+← Back
+</a>
+
+<h2>
+Experiment 1
+</h2>
+
+</div>
+
+<div class="container">
+
+<div class="section">
+
+<h1>
+DBMS vs File System
+</h1>
+
+</div>
+
+<div class="section">
+
+<h2>
+Aim
+</h2>
+
+<p>
+To study and compare Database Management System and File System.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+Objective
+</h2>
+
+<ul>
+
+<li>Understand DBMS.</li>
+
+<li>Understand File System.</li>
+
+<li>Compare advantages and disadvantages.</li>
+
+<li>Analyze redundancy and consistency.</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>
+Theory
+</h2>
+
+<p>
+
+A File System stores data in individual files.
+
+A Database Management System stores data in structured tables and provides security, consistency, integrity and controlled access.
+
+DBMS minimizes redundancy and supports concurrent access.
+
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+Comparison Table
+</h2>
+
+<table>
+
+<tr>
+
+<th>Feature</th>
+
+<th>File System</th>
+
+<th>DBMS</th>
+
+</tr>
+
+<tr>
+
+<td>Redundancy</td>
+
+<td>High</td>
+
+<td>Low</td>
+
+</tr>
+
+<tr>
+
+<td>Security</td>
+
+<td>Low</td>
+
+<td>High</td>
+
+</tr>
+
+<tr>
+
+<td>Backup</td>
+
+<td>Manual</td>
+
+<td>Automatic</td>
+
+</tr>
+
+<tr>
+
+<td>Concurrency</td>
+
+<td>No</td>
+
+<td>Yes</td>
+
+</tr>
+
+<tr>
+
+<td>Integrity</td>
+
+<td>Low</td>
+
+<td>High</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="section">
+
+<h2>
+Procedure
+</h2>
+
+<ol>
+
+<li>Study File System.</li>
+
+<li>Study DBMS.</li>
+
+<li>Observe features.</li>
+
+<li>Compare both systems.</li>
+
+<li>Analyze results.</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Simulation
+</h2>
+
+<div class="simulator">
+
+<input
+type="text"
+id="record"
+placeholder="Enter Record"
+/>
+
+<button
+class="btn"
+onclick="addRecord()"
+>
+Store Record
+</button>
+
+<h3>
+Stored Records
+</h3>
+
+<ul id="records"></ul>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Pre-Test Quiz
+</h2>
+
+<div class="quiz-question">
+
+<p>
+1. Which system reduces redundancy?
+</p>
+
+<input
+type="radio"
+name="q1"
+value="DBMS"
+>
+DBMS
+
+<input
+type="radio"
+name="q1"
+value="File"
+>
+File System
+
+</div>
+
+<button
+class="btn"
+onclick="checkQuiz()"
+>
+Submit
+</button>
+
+<div
+id="quizResult"
+class="result"
+></div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Assignment
+</h2>
+
+<ol>
+
+<li>
+Differentiate DBMS and File System.
+</li>
+
+<li>
+Explain redundancy.
+</li>
+
+<li>
+Explain integrity constraints.
+</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Viva Questions
+</h2>
+
+<ol>
+
+<li>What is DBMS?</li>
+
+<li>What is File System?</li>
+
+<li>What is redundancy?</li>
+
+<li>What is concurrency?</li>
+
+<li>What is data integrity?</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+References
+</h2>
+
+<ul>
+
+<li>Korth DBMS</li>
+
+<li>Elmasri and Navathe</li>
+
+<li>AKTU DBMS Syllabus</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script>
+
+let data = [];
+
+function addRecord(){
+
+let value =
+document.getElementById(
+"record"
+).value;
+
+if(value==="") return;
+
+data.push(value);
+
+render();
+
+document.getElementById(
+"record"
+).value="";
+
+}
+
+function render(){
+
+let html="";
+
+data.forEach(item=>{
+
+html +=
+`<li>${item}</li>`;
+
+});
+
+document.getElementById(
+"records"
+).innerHTML = html;
+
+}
+
+function checkQuiz(){
+
+let answer =
+document.querySelector(
+'input[name="q1"]:checked'
+);
+
+if(!answer){
+
+alert(
+"Select an answer"
+);
+
+return;
+
+}
+
+if(answer.value==="DBMS"){
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Correct Answer";
+
+}
+else{
+
+document.getElementById(
+"quizResult"
+).innerHTML =
+"Wrong Answer";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
+```
