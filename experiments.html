@@ -1,166 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DBMS Experiments</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<style>
-
-.exp-container{
-max-width:1200px;
-margin:auto;
-padding:40px;
-}
-
-.exp-grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-}
-
-.exp-card{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,.1);
-}
-
-.exp-card h3{
-color:#1565c0;
-margin-bottom:15px;
-}
-
-.exp-card p{
-margin-bottom:20px;
-}
-
-.exp-btn{
-display:inline-block;
-padding:10px 20px;
-background:#1565c0;
-color:white;
-text-decoration:none;
-border-radius:5px;
-}
-
-.exp-btn:hover{
-background:#0d47a1;
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBMS Virtual Laboratory - List of Experiments</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header>
+    <div class="menu-bar">
+      <div class="menu-icon" id="menuToggle">&#9776;</div>
+      <div class="logo">
+        <img src="logo.jpg" alt="Virtual Labs Logo" />
+      </div>
+    </div>
+    <div class="orange-line"></div>
+    <h2 align="left" style="color:#4a90e2"><div class="dept-title">Computer Science and Engineering</div></h2>
+    <div class="grey-line"></div>
+  </header>
 
-<div class="top-bar"></div>
+  <main class="content">
+    <h1 align="center">DBMS Virtual Laboratory</h1>
+    <ul>
+      <li><a href="experiments/exp1.html">Experiment 1: DBMS vs File System</a> <span class="stars">★★★★★</span></li>
+      <li><a href="experiments/exp2.html">Experiment 2: Three Schema Architecture</a> <span class="stars">★★★★★</span></li>
+      <li><a href="experiments/exp3.html">Experiment 3: ER Diagram Design</a> <span class="stars">★★★★★</span></li>
+      <li><a href="experiments/exp4.html">Experiment 4: ER to Relational Mapping</a> <span class="stars">★★★★★</span></li>
+      <li><a href="experiments/exp5.html">Experiment 5: Relational Algebra</a> <span class="stars">★★★★★</span></li>
+      <li><a href="experiments/exp6.html">Experiment 6: SQL Query Laboratory</a> <span class="stars">★★★★★</span></li>
+      <li><a href="experiments/exp7.html">Experiment 7: SQL Join Visualizer</a> <span class="stars">★★★★★</span></li>
+      <li><a href="experiments/exp8.html">Experiment 8: Functional Dependency</a> <span class="stars">★★★★★</span></li>
+      <li><a href="experiments/exp9.html">Experiment 9: Normalization</a> <span class="stars">★★★★★</span></li>
+      <li><a href="experiments/exp10.html">Experiment 10: Transactions &amp; Concurrency</a> <span class="stars">★★★★★</span></li>
+    </ul>
+  </main>
 
-<div class="header">
-<h1>DBMS Virtual Laboratory</h1>
-</div>
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <img src="logo.jpg" alt="Logo" class="modal-logo"/>
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+      <ul class="modal-menu">
+        <li><a href="index.html">Introduction</a></li>
+        <li><a href="objective.html">Objective</a></li>
+        <li><a href="experiments.html" class="active">List of experiments</a></li>
+        <li><a href="target-audience.html">Target Audience</a></li>
+        <li><a href="course-alignment.html">Course Alignment</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
 
-<div class="exp-container">
-
-<h1>List of Experiments</h1>
-
-<div class="exp-grid">
-
-<div class="exp-card">
-<h3>Experiment 1</h3>
-<p>DBMS vs File System</p>
-<a href="experiments/exp1.html"
-class="exp-btn">
-Open
-</a>
-</div>
-
-<div class="exp-card">
-<h3>Experiment 2</h3>
-<p>Three Schema Architecture</p>
-<a href="experiments/exp2.html"
-class="exp-btn">
-Open
-</a>
-</div>
-
-<div class="exp-card">
-<h3>Experiment 3</h3>
-<p>ER Diagram Design</p>
-<a href="experiments/exp3.html"
-class="exp-btn">
-Open
-</a>
-</div>
-
-<div class="exp-card">
-<h3>Experiment 4</h3>
-<p>ER to Relational Mapping</p>
-<a href="experiments/exp4.html"
-class="exp-btn">
-Open
-</a>
-</div>
-
-<div class="exp-card">
-<h3>Experiment 5</h3>
-<p>Relational Algebra</p>
-<a href="experiments/exp5.html"
-class="exp-btn">
-Open
-</a>
-</div>
-
-<div class="exp-card">
-<h3>Experiment 6</h3>
-<p>SQL Query Lab</p>
-<a href="experiments/exp6.html"
-class="exp-btn">
-Open
-</a>
-</div>
-
-<div class="exp-card">
-<h3>Experiment 7</h3>
-<p>SQL Join Visualizer</p>
-<a href="experiments/exp7.html"
-class="exp-btn">
-Open
-</a>
-</div>
-
-<div class="exp-card">
-<h3>Experiment 8</h3>
-<p>Functional Dependency</p>
-<a href="experiments/exp8.html"
-class="exp-btn">
-Open
-</a>
-</div>
-
-<div class="exp-card">
-<h3>Experiment 9</h3>
-<p>Normalization</p>
-<a href="experiments/exp9.html"
-class="exp-btn">
-Open
-</a>
-</div>
-
-<div class="exp-card">
-<h3>Experiment 10</h3>
-<p>Transaction Processing</p>
-<a href="experiments/exp10.html"
-class="exp-btn">
-Open
-</a>
-</div>
-
-</div>
-
-</div>
-
+  <script src="js/main.js"></script>
 </body>
 </html>

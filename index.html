@@ -1,232 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DBMS Virtual Laboratory</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/experiment.css">
-    <link rel="stylesheet" href="css/responsive.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBMS Virtual Laboratory</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-    <!-- Top Orange Line -->
-    <div class="top-bar"></div>
-
-    <!-- Header -->
-    <header class="header">
-
-        <div id="menuBtn" class="logo">
-            ☰
-        </div>
-
-        <div class="vlab-logo">
-            Virtual Labs
-        </div>
-
-    </header>
-
-    <!-- Sidebar -->
-    <aside id="sidebar" class="sidebar">
-
-        <div class="sidebar-header">
-            <h2>DBMS</h2>
-            <p>Virtual Laboratory</p>
-        </div>
-
-        <a href="index.html">
-            Introduction
-        </a>
-
-        <a href="about.html#objective">
-            Objective
-        </a>
-
-        <a href="experiments.html">
-            List of Experiments
-        </a>
-
-        <a href="about.html#target-audience">
-            Target Audience
-        </a>
-
-        <a href="about.html#course-alignment">
-            Course Alignment
-        </a>
-
-        <a href="feedback.html">
-            Feedback
-        </a>
-
-        <hr>
-
-        <a href="experiments/exp1.html">
-            Experiment 1 : DBMS vs File System
-        </a>
-
-        <a href="experiments/exp2.html">
-            Experiment 2 : Three Schema Architecture
-        </a>
-
-        <a href="experiments/exp3.html">
-            Experiment 3 : ER Diagram Design
-        </a>
-
-        <a href="experiments/exp4.html">
-            Experiment 4 : ER to Relational Mapping
-        </a>
-
-        <a href="experiments/exp5.html">
-            Experiment 5 : Relational Algebra
-        </a>
-
-        <a href="experiments/exp6.html">
-            Experiment 6 : SQL Query Laboratory
-        </a>
-
-        <a href="experiments/exp7.html">
-            Experiment 7 : SQL Join Visualizer
-        </a>
-
-        <a href="experiments/exp8.html">
-            Experiment 8 : Functional Dependency
-        </a>
-
-        <a href="experiments/exp9.html">
-            Experiment 9 : Normalization
-        </a>
-
-        <a href="experiments/exp10.html">
-            Experiment 10 : Transactions & Concurrency
-        </a>
-
-    </aside>
-
-    <!-- Overlay -->
-    <div id="overlay" class="overlay"></div>
-
-    <!-- Department -->
-    <section class="department">
-
-        Computer Science and Engineering
-
-    </section>
-
-    <!-- Main Content -->
-    <main class="content">
-
-        <h1 class="main-title">
-            Virtual Database Management System Laboratory
-        </h1>
-
-        <p class="subtitle">
-            Learn, Simulate and Master Database Management System Concepts Through Interactive Virtual Experiments
-        </p>
-
-        <p class="description">
-
-            The Virtual Database Management System Laboratory is an interactive educational platform designed to help students understand database concepts through theory, visual simulations, SQL execution, normalization analysis, ER modeling, relational algebra, quizzes and performance analysis.
-
-            <br><br>
-
-            The platform provides hands-on learning experiences for Database Architecture, Entity Relationship Modeling, Relational Algebra, SQL Programming, Functional Dependencies, Normalization, Transactions and Concurrency Control.
-
-            <br><br>
-
-            Students can perform experiments, visualize execution, compare results and learn Database Management System concepts interactively.
-
-        </p>
-
-        <section class="stats">
-
-            <div class="stat-card">
-                <h3>10</h3>
-                <p>Experiments</p>
-            </div>
-
-            <div class="stat-card">
-                <h3>AKTU</h3>
-                <p>Curriculum</p>
-            </div>
-
-        </section>
-
-        <section class="section">
-
-            <h2>
-                List of Experiments
-            </h2>
-
-            <a href="experiments/exp1.html" class="exp-link">
-                Experiment 1 : DBMS vs File System
-            </a>
-
-            <a href="experiments/exp2.html" class="exp-link">
-                Experiment 2 : Three Schema Architecture
-            </a>
-
-            <a href="experiments/exp3.html" class="exp-link">
-                Experiment 3 : ER Diagram Design
-            </a>
-
-            <a href="experiments/exp4.html" class="exp-link">
-                Experiment 4 : ER to Relational Mapping
-            </a>
-
-            <a href="experiments/exp5.html" class="exp-link">
-                Experiment 5 : Relational Algebra
-            </a>
-
-            <a href="experiments/exp6.html" class="exp-link">
-                Experiment 6 : SQL Query Laboratory
-            </a>
-
-            <a href="experiments/exp7.html" class="exp-link">
-                Experiment 7 : SQL Join Visualizer
-            </a>
-
-            <a href="experiments/exp8.html" class="exp-link">
-                Experiment 8 : Functional Dependency
-            </a>
-
-            <a href="experiments/exp9.html" class="exp-link">
-                Experiment 9 : Normalization
-            </a>
-
-            <a href="experiments/exp10.html" class="exp-link">
-                Experiment 10 : Transactions & Concurrency
-            </a>
-
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-
-        <h3>
-            DBMS Virtual Laboratory
-        </h3>
-
-        <p>
-            Designed according to AKTU Database Management System Syllabus
-        </p>
-
-        <p>
-            10 Experiments | Interactive Learning Platform
-        </p>
-
-        <p>
-            © 2026 All Rights Reserved
-        </p>
-
-    </footer>
-
-    <script src="js/main.js"></script>
-
+  <header>
+    <div class="menu-bar">
+      <div class="menu-icon" id="menuToggle">&#9776;</div>
+      <div class="logo">
+        <img src="logo.jpg" alt="Virtual Labs Logo" />
+      </div>
+    </div>
+    <div class="orange-line"></div>
+    <h2 align="left" style="color:#4a90e2"><div class="dept-title">Computer Science and Engineering</div></h2>
+  </header>
+
+  <main class="content">
+    <h1 align="center">DBMS Virtual Laboratory</h1>
+    <p>
+      <strong>Learn, Simulate, and Master Database Management System Concepts Through Interactive Virtual Experiments</strong><br><br>
+
+      The lab contents are chosen such that they cover the syllabus of Database Management System courses, including fundamental concepts such as DBMS architecture, Entity Relationship modeling, relational algebra, SQL programming, functional dependencies, normalization, transaction processing, and concurrency control. The experiments are designed to provide hands-on experience and strengthen students' understanding of database concepts through practical implementation and interactive simulations.
+    </p>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <img src="logo.jpg" alt="Logo" class="modal-logo"/>
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+      <ul class="modal-menu">
+        <li><a href="index.html" class="active">Introduction</a></li>
+        <li><a href="objective.html">Objective</a></li>
+        <li><a href="experiments.html">List of experiments</a></li>
+        <li><a href="target-audience.html">Target Audience</a></li>
+        <li><a href="course-alignment.html">Course Alignment</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
-
 </html>
