@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Experiment 5 - Relational Algebra Simulator</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px;
+}
+
+.section{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.section h2{
+color:#1565c0;
+margin-bottom:15px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+table,th,td{
+border:1px solid #ddd;
+}
+
+th,td{
+padding:12px;
+text-align:center;
+}
+
+select{
+padding:10px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+background:#1565c0;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+background:#f5f5f5;
+padding:20px;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar"></div>
+
+<div class="header">
+
+<a href="javascript:history.back()">
+← Back
+</a>
+
+<h2>
+Experiment 5
+</h2>
+
+</div>
+
+<div class="container">
+
+<div class="section">
+
+<h1>
+Relational Algebra Simulator
+</h1>
+
+</div>
+
+<div class="section">
+
+<h2>
+Aim
+</h2>
+
+<p>
+To perform Relational Algebra operations on database tables.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+Objective
+</h2>
+
+<ul>
+
+<li>Understand Selection (σ)</li>
+
+<li>Understand Projection (π)</li>
+
+<li>Understand Union</li>
+
+<li>Understand Difference</li>
+
+<li>Understand Join</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>
+Sample Relation: STUDENT
+</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Branch</th>
+</tr>
+
+<tr>
+<td>101</td>
+<td>Rahul</td>
+<td>CSE</td>
+</tr>
+
+<tr>
+<td>102</td>
+<td>Priya</td>
+<td>IT</td>
+</tr>
+
+<tr>
+<td>103</td>
+<td>Amit</td>
+<td>CSE</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="section">
+
+<h2>
+Simulator
+</h2>
+
+<select id="operation">
+
+<option value="selection">
+Selection σ
+</option>
+
+<option value="projection">
+Projection π
+</option>
+
+<option value="union">
+Union
+</option>
+
+<option value="difference">
+Difference
+</option>
+
+<option value="join">
+Join
+</option>
+
+</select>
+
+<button onclick="performOperation()">
+Execute
+</button>
+
+<div
+id="result"
+class="result"
+>
+Result appears here
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Procedure
+</h2>
+
+<ol>
+
+<li>Select operation.</li>
+
+<li>Apply operation.</li>
+
+<li>Observe output relation.</li>
+
+<li>Analyze result.</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Pre-Test Quiz
+</h2>
+<p>
+1. Which operator selects rows?
+</p>
+
+<input type="radio" name="q1" value="selection">
+Selection
+
+<input type="radio" name="q1" value="projection">
+Projection
+
+<br><br>
+
+<p>
+2. Which operator selects columns?
+</p>
+
+<input type="radio" name="q2" value="projection">
+Projection
+
+<input type="radio" name="q2" value="selection">
+Selection
+
+<br><br>
+
+<p>
+3. Symbol sigma denotes?
+</p>
+
+<input type="radio" name="q3" value="selection">
+Selection
+
+<input type="radio" name="q3" value="projection">
+Projection
+
+<br><br>
+
+<p>
+4. Symbol pi denotes?
+</p>
+
+<input type="radio" name="q4" value="projection">
+Projection
+
+<input type="radio" name="q4" value="union">
+Union
+
+<br><br>
+
+<p>
+5. Natural join uses?
+</p>
+
+<input type="radio" name="q5" value="common">
+Common attributes
+
+<input type="radio" name="q5" value="all">
+All attributes
+
+<br><br>
+
+<p>
+6. Cartesian product is?
+</p>
+
+<input type="radio" name="q6" value="product">
+Cross product
+
+<input type="radio" name="q6" value="union">
+Union
+
+<br><br>
+
+<p>
+7. Union requires?
+</p>
+
+<input type="radio" name="q7" value="compatible">
+Compatible schemas
+
+<input type="radio" name="q7" value="any">
+Any schemas
+
+<br><br>
+
+<p>
+8. Difference operator is?
+</p>
+
+<input type="radio" name="q8" value="minus">
+Minus
+
+<input type="radio" name="q8" value="intersect">
+Intersection
+
+<br><br>
+
+<p>
+9. Rename operator is?
+</p>
+
+<input type="radio" name="q9" value="rho">
+Rho
+
+<input type="radio" name="q9" value="sigma">
+Sigma
+
+<br><br>
+
+<p>
+10. Division is used for?
+</p>
+
+<input type="radio" name="q10" value="all">
+For all queries
+
+<input type="radio" name="q10" value="some">
+For some only
+
+<br><br>
+
+<button onclick="checkQuiz()">
+Submit
+</button>
+
+<div id="quizResult"></div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Assignment
+</h2>
+
+<ol>
+
+<li>Perform Selection operation.</li>
+
+<li>Perform Projection operation.</li>
+
+<li>Differentiate Join and Union.</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+Viva Questions
+</h2>
+
+<ol>
+
+<li>What is Relational Algebra?</li>
+
+<li>What is Selection?</li>
+
+<li>What is Projection?</li>
+
+<li>What is Join?</li>
+
+<li>What is Union?</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+References
+</h2>
+
+<ul>
+
+<li>Korth DBMS</li>
+
+<li>Elmasri and Navathe</li>
+
+<li>AKTU DBMS Notes</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script>
+
+function performOperation(){
+
+let op =
+document.getElementById(
+"operation"
+).value;
+
+let result =
+document.getElementById(
+"result"
+);
+
+if(op==="selection"){
+
+result.innerHTML=
+"<b>σ Branch='CSE'</b><br><br>Rahul<br>Amit";
+
+}
+
+else if(op==="projection"){
+
+result.innerHTML=
+"<b>π Name</b><br><br>Rahul<br>Priya<br>Amit";
+
+}
+
+else if(op==="union"){
+
+result.innerHTML=
+"<b>Union Result</b><br><br>Combined tuples from two relations";
+
+}
+
+else if(op==="difference"){
+
+result.innerHTML=
+"<b>Difference Result</b><br><br>Unique tuples only";
+
+}
+
+else{
+
+result.innerHTML=
+"<b>Join Result</b><br><br>STUDENT ⨝ DEPARTMENT";
+
+}
+
+}
+
+function checkQuiz(){
+
+var correct = {q1:"selection", q2:"projection", q3:"selection", q4:"projection", q5:"common", q6:"product", q7:"compatible", q8:"minus", q9:"rho", q10:"all"};
+var score = 0;
+
+for(var k in correct){
+
+var sel = document.querySelector('input[name="'+k+'"]:checked');
+
+if(!sel){
+
+alert("Please answer all 10 questions.");
+
+return;
+
+}
+
+if(sel.value === correct[k]) score++;
+
+}
+
+document.getElementById("quizResult").innerHTML = "Your Score: "+score+" out of 10";
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBMS Virtual Lab | Feedback</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header class="header-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-brand-logo">DBMS<span>VirtualLab</span></div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="./index.html">Home</a></li>
+                    <li class="nav-item"><a href="./experiments.html">Experiments</a></li>
+                    <li class="nav-item"><a href="./about.html">About</a></li>
+                    <li class="nav-item"><a href="./feedback.html" class="active">Feedback</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-block" style="padding: 3rem 2rem;">
+        <div class="hero-wrapper">
+            <h1>User Feedback</h1>
+            <p>Please share your simulation experience or observations to help us improve the lab environment.</p>
+        </div>
+    </section>
+
+    <main class="lab-main-content">
+        <section class="academic-form-block">
+            <form id="labFeedbackForm" onsubmit="event.preventDefault(); alert('Feedback recorded inside the new UI style skin!');">
+                <div class="form-row-group">
+                    <label for="studentName">Student Candidate Name</label>
+                    <input type="text" id="studentName" class="input-field-element" placeholder="Provide full academic name" required>
+                </div>
+                <div class="form-row-group">
+                    <label for="studentEmail">Institutional Email Address</label>
+                    <input type="email" id="studentEmail" class="input-field-element" placeholder="identity@institution.edu" required>
+                </div>
+                <div class="form-row-group">
+                    <label for="feedbackMessage">Observations & System Notes</label>
+                    <textarea id="feedbackMessage" class="input-field-element" rows="5" placeholder="Specify observations regarding database parsing execution..." required></textarea>
+                </div>
+                <button type="submit" class="action-btn btn-solid" style="width: 100%; border: none; margin-top: 0.5rem;">Submit Record</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="academic-footer">
+        <div class="footer-top-layout">
+            <div>
+                <h3 style="color:white; margin-bottom:0.5rem;">DBMS Virtual Lab</h3>
+                <p style="color: #94a3b8; font-size:0.85rem; max-width:300px;">An educational workbench dedicated to the verification and analysis of schema transformations metrics.</p>
+            </div>
+        </div>
+        <div style="max-width: 1200px; margin: 2rem auto 0; padding-top:1.5rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; color:#94a3b8;">
+            <p>&copy; 2026 Database Systems Virtual Laboratory Portal. All educational rights preserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
