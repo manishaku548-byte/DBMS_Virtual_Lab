@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBMS Virtual Laboratory</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="menu-bar">
+      <div class="menu-icon" id="menuToggle">&#9776;</div>
+      <div class="logo">
+        <img src="../../assets/logo.jpg" alt="Virtual Labs Logo" />
+      </div>
+    </div>
+    <div class="orange-line"></div>
+    <h2 align="left" style="color:#4a90e2"><div class="section"><a href="#">Computer Science and Engineering</a> &gt; <a href="../../index.html">DBMS Virtual Laboratory</a> &gt; <a href="../../experiments.html">Experiments</a></div></h2>
+    <div class="grey-line"></div>
+  </header>
+
+  <main class="content">
+    <h1 align="center">Experiment 8: Functional Dependency</h1>
+  </main>
+
+  <div class="content">
+    <div class="message">
+      <p><strong>Dear User,</strong></p>
+      <p>Thanks for completing Experiment 8: Functional Dependency. Your feedback helps us improve this experiment for future learners.</p>
+    </div>
+
+    <form class="feedback-form" id="feedbackForm8">
+      <label for="fbMsg8">Your Feedback</label>
+      <textarea id="fbMsg8" rows="4" placeholder="Share your experience with this experiment..."></textarea>
+      <button type="button" onclick="submitExpFeedback8()">Submit Feedback</button>
+    </form>
+    <div class="feedback-success" id="feedbackSuccess8">
+      Thank you! Your feedback has been recorded for this session.
+    </div>
+  </div>
+
+  <script>
+    function submitExpFeedback8() {
+      const msg = document.getElementById('fbMsg8').value.trim();
+      if (msg === "") {
+        alert("Please enter your feedback before submitting.");
+        return;
+      }
+      document.getElementById('feedbackSuccess8').style.display = 'block';
+      document.getElementById('feedbackForm8').reset();
+    }
+  </script>
+
+  <!-- Modal Menu -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <img src="../../assets/logo.jpg" alt="Logo" class="modal-logo"/>
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+      <ul class="modal-menu">
+        <li><a href="AO.html">Aim</a></li>
+        <li><a href="theory.html">Theory</a></li>
+        <li><a href="quiz.html">Pretest</a></li>
+        <li><a href="pro.html">Procedure</a></li>
+        <li><a href="sim.html">Simulation</a></li>
+        <li><a href="postt.html">Posttest</a></li>
+        <li><a href="ref.html">References</a></li>
+        <li><a href="feed2.html" class="active">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../../js/script.js"></script>
+</body>
+</html>

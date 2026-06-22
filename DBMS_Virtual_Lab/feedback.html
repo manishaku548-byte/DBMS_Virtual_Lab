@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBMS Virtual Laboratory</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="menu-bar">
+      <div class="menu-icon" id="menuToggle">&#9776;</div>
+      <div class="logo">
+        <img src="assets/logo.jpg" alt="Virtual Labs Logo" />
+      </div>
+    </div>
+    <div class="orange-line"></div>
+    <h2 align="left" style="color:#4a90e2"><div class="section">Computer Science and Engineering</div></h2>
+    <div class="grey-line"></div>
+  </header>
+
+  <main class="content">
+    <h1 align="center">Virtual Database Management System Laboratory</h1>
+
+    <div class="message">
+      <p><strong>Dear User,</strong></p>
+      <p>Thanks for using the DBMS Virtual Laboratory. Your feedback helps us improve the platform for you and other students. Please share your thoughts using the form below.</p>
+    </div>
+
+    <form class="feedback-form" id="feedbackForm">
+      <label for="fbName">Name</label>
+      <input type="text" id="fbName" placeholder="Enter your name">
+
+      <label for="fbEmail">Email (optional)</label>
+      <input type="email" id="fbEmail" placeholder="Enter your email">
+
+      <label for="fbMessage">Your Feedback</label>
+      <textarea id="fbMessage" rows="5" placeholder="Share your experience, suggestions, or issues..."></textarea>
+
+      <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+    </form>
+
+    <div class="feedback-success" id="feedbackSuccess">
+      Thank you! Your feedback has been recorded for this session.
+    </div>
+
+    <p style="margin-top:25px;">Thanks for your time !<br><strong>The DBMS Virtual Laboratory Team</strong></p>
+  </main>
+
+  <footer class="site-footer">
+    <h3>DBMS Virtual Laboratory</h3>
+    <p>Designed according to AKTU Database Management System Syllabus</p>
+    <p>10 Experiments | 5 Units | Interactive Learning Platform</p>
+    <p>&copy; 2026 All Rights Reserved</p>
+  </footer>
+
+  <!-- Modal Menu -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <img src="assets/logo.jpg" alt="Logo" class="modal-logo"/>
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+      <ul class="modal-menu">
+        <li><a href="index.html">Introduction</a></li>
+        <li><a href="objective.html">Objective</a></li>
+        <li><a href="experiments.html">List of Experiments</a></li>
+        <li><a href="taraud.html">Target Audience</a></li>
+        <li><a href="coal.html">Course Alignment</a></li>
+        <li><a href="feedback.html" class="active">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    function submitFeedback() {
+      const name = document.getElementById('fbName').value.trim();
+      const message = document.getElementById('fbMessage').value.trim();
+
+      if (message === "") {
+        alert("Please enter your feedback before submitting.");
+        return;
+      }
+
+      document.getElementById('feedbackSuccess').style.display = 'block';
+      document.getElementById('feedbackForm').reset();
+    }
+  </script>
+</body>
+</html>

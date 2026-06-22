@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBMS Virtual Laboratory</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="menu-bar">
+      <div class="menu-icon" id="menuToggle">&#9776;</div>
+      <div class="logo">
+        <img src="../../assets/logo.jpg" alt="Virtual Labs Logo" />
+      </div>
+    </div>
+    <div class="orange-line"></div>
+    <h2 align="left" style="color:#4a90e2"><div class="section"><a href="#">Computer Science and Engineering</a> &gt; <a href="../../index.html">DBMS Virtual Laboratory</a> &gt; <a href="../../experiments.html">Experiments</a></div></h2>
+    <div class="grey-line"></div>
+  </header>
+
+  <main class="content">
+    <h1 align="center">Experiment 6: SQL Query Laboratory</h1>
+  </main>
+
+  <div class="container" style="max-width:900px;margin:auto;padding:0 20px;">
+    <form id="posttestForm">
+      <div class="section">
+        <p><strong>1. Which clause filters rows in SQL?</strong></p>
+        <label><input type="radio" name="p1" value="a"> a: ORDER BY</label><br>
+        <label><input type="radio" name="p1" value="b"> b: WHERE</label><br>
+        <label><input type="radio" name="p1" value="c"> c: GROUP BY</label><br>
+        <label><input type="radio" name="p1" value="d"> d: SELECT</label>
+      </div>
+      <div class="section">
+        <p><strong>2. Which clause sorts the result set?</strong></p>
+        <label><input type="radio" name="p2" value="a"> a: WHERE</label><br>
+        <label><input type="radio" name="p2" value="b"> b: ORDER BY</label><br>
+        <label><input type="radio" name="p2" value="c"> c: FROM</label><br>
+        <label><input type="radio" name="p2" value="d"> d: GROUP BY</label>
+      </div>
+      <div class="section">
+        <p><strong>3. SELECT * FROM STUDENT; retrieves:</strong></p>
+        <label><input type="radio" name="p3" value="a"> a: No rows</label><br>
+        <label><input type="radio" name="p3" value="b"> b: All columns and rows</label><br>
+        <label><input type="radio" name="p3" value="c"> c: Only the ID column</label><br>
+        <label><input type="radio" name="p3" value="d"> d: Only CSE students</label>
+      </div>
+      <div class="section">
+        <p><strong>4. Which clause groups rows sharing a value?</strong></p>
+        <label><input type="radio" name="p4" value="a"> a: GROUP BY</label><br>
+        <label><input type="radio" name="p4" value="b"> b: ORDER BY</label><br>
+        <label><input type="radio" name="p4" value="c"> c: WHERE</label><br>
+        <label><input type="radio" name="p4" value="d"> d: HAVING only</label>
+      </div>
+      <div class="section">
+        <p><strong>5. SQL stands for:</strong></p>
+        <label><input type="radio" name="p5" value="a"> a: Structured Query Language</label><br>
+        <label><input type="radio" name="p5" value="b"> b: Sequential Query Logic</label><br>
+        <label><input type="radio" name="p5" value="c"> c: Simple Query Language</label><br>
+        <label><input type="radio" name="p5" value="d"> d: System Query Language</label>
+      </div>
+      <button type="button" onclick="checkPosttest()">Submit Quiz</button>
+      <p id="result" class="result"></p>
+    </form>
+  </div>
+
+  <div class="content">
+    <div class="section">
+      <h2>Assignment</h2>
+      <ol>
+      <li>Write SQL query to display all students.</li>
+      <li>Write SQL query to display CSE students.</li>
+      <li>Write SQL query using ORDER BY.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>Viva Questions</h2>
+      <ol>
+      <li>What is SQL?</li>
+      <li>What is SELECT statement?</li>
+      <li>What is WHERE clause?</li>
+      <li>What is ORDER BY?</li>
+      <li>What is GROUP BY?</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    function checkPosttest() {
+      const correctAnswers = { p1: "b", p2: "b", p3: "b", p4: "a", p5: "a" };
+      let score = 0;
+      let total = Object.keys(correctAnswers).length;
+      for (let key in correctAnswers) {
+        const options = document.querySelectorAll(`input[name="${key}"]`);
+        options.forEach(option => {
+          const label = option.parentElement;
+          label.style.color = "";
+          if (option.checked) {
+            if (option.value === correctAnswers[key]) {
+              label.style.color = "green";
+              score++;
+            } else {
+              label.style.color = "red";
+            }
+          }
+        });
+      }
+      document.getElementById("result").innerText = `${score} out of ${total}`;
+    }
+  </script>
+
+  <!-- Modal Menu -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <img src="../../assets/logo.jpg" alt="Logo" class="modal-logo"/>
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+      <ul class="modal-menu">
+        <li><a href="AO.html">Aim</a></li>
+        <li><a href="theory.html">Theory</a></li>
+        <li><a href="quiz.html">Pretest</a></li>
+        <li><a href="pro.html">Procedure</a></li>
+        <li><a href="sim.html">Simulation</a></li>
+        <li><a href="postt.html" class="active">Posttest</a></li>
+        <li><a href="ref.html">References</a></li>
+        <li><a href="feed2.html">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../../js/script.js"></script>
+</body>
+</html>

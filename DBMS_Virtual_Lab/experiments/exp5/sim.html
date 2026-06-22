@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relational Algebra Simulator - Simulation</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .sim-header {
+      background-color: #1565c0;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      font-size: 22px;
+      font-weight: bold;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .sim-wrap { max-width: 800px; margin: 30px auto; padding: 0 20px; }
+    .result-box {
+      margin-top: 20px;
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 10px;
+      min-height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="menu-bar">
+      <div class="menu-icon" id="menuToggle">&#9776;</div>
+      <div class="logo"><img src="../../assets/logo.jpg" alt="Virtual Labs Logo" /></div>
+    </div>
+    <div class="orange-line"></div>
+  </header>
+
+  <div class="sim-header">Experiment 5: Relational Algebra Simulator &mdash; Simulation</div>
+
+  <div class="sim-wrap">
+    <div class="section">
+      <h2>Sample Relation: STUDENT</h2>
+      <table>
+        <tr><th>ID</th><th>Name</th><th>Branch</th></tr>
+        <tr><td>101</td><td>Rahul</td><td>CSE</td></tr>
+        <tr><td>102</td><td>Priya</td><td>IT</td></tr>
+        <tr><td>103</td><td>Amit</td><td>CSE</td></tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Simulator</h2>
+      <select id="operation">
+        <option value="selection">Selection &sigma;</option>
+        <option value="projection">Projection &pi;</option>
+        <option value="union">Union</option>
+        <option value="difference">Difference</option>
+        <option value="join">Join</option>
+      </select>
+
+      <button onclick="performOperation()">Execute</button>
+
+      <div id="result" class="result-box">Result appears here</div>
+    </div>
+  </div>
+
+  <!-- Modal Menu -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <img src="../../assets/logo.jpg" alt="Logo" class="modal-logo"/>
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+      <ul class="modal-menu">
+        <li><a href="AO.html">Aim</a></li>
+        <li><a href="theory.html">Theory</a></li>
+        <li><a href="quiz.html">Pretest</a></li>
+        <li><a href="pro.html">Procedure</a></li>
+        <li><a href="sim.html" class="active">Simulation</a></li>
+        <li><a href="postt.html">Posttest</a></li>
+        <li><a href="ref.html">References</a></li>
+        <li><a href="feed2.html">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../../js/script.js"></script>
+  <script>
+    function performOperation() {
+      let op = document.getElementById("operation").value;
+      let result = document.getElementById("result");
+
+      if (op === "selection") {
+        result.innerHTML = "<b>&sigma; Branch='CSE'</b><br><br>Rahul<br>Amit";
+      } else if (op === "projection") {
+        result.innerHTML = "<b>&pi; Name</b><br><br>Rahul<br>Priya<br>Amit";
+      } else if (op === "union") {
+        result.innerHTML = "<b>Union Result</b><br><br>Combined tuples from two relations";
+      } else if (op === "difference") {
+        result.innerHTML = "<b>Difference Result</b><br><br>Unique tuples only";
+      } else {
+        result.innerHTML = "<b>Join Result</b><br><br>STUDENT &#10781; DEPARTMENT";
+      }
+    }
+  </script>
+</body>
+</html>

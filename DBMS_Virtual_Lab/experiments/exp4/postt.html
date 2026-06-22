@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBMS Virtual Laboratory</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="menu-bar">
+      <div class="menu-icon" id="menuToggle">&#9776;</div>
+      <div class="logo">
+        <img src="../../assets/logo.jpg" alt="Virtual Labs Logo" />
+      </div>
+    </div>
+    <div class="orange-line"></div>
+    <h2 align="left" style="color:#4a90e2"><div class="section"><a href="#">Computer Science and Engineering</a> &gt; <a href="../../index.html">DBMS Virtual Laboratory</a> &gt; <a href="../../experiments.html">Experiments</a></div></h2>
+    <div class="grey-line"></div>
+  </header>
+
+  <main class="content">
+    <h1 align="center">Experiment 4: ER to Relational Mapping</h1>
+  </main>
+
+  <div class="container" style="max-width:900px;margin:auto;padding:0 20px;">
+    <form id="posttestForm">
+      <div class="section">
+        <p><strong>1. An Attribute maps to a:</strong></p>
+        <label><input type="radio" name="p1" value="a"> a: Table</label><br>
+        <label><input type="radio" name="p1" value="b"> b: Column</label><br>
+        <label><input type="radio" name="p1" value="c"> c: Database</label><br>
+        <label><input type="radio" name="p1" value="d"> d: Index</label>
+      </div>
+      <div class="section">
+        <p><strong>2. A Relationship is typically represented using a:</strong></p>
+        <label><input type="radio" name="p2" value="a"> a: Primary Key</label><br>
+        <label><input type="radio" name="p2" value="b"> b: Foreign Key</label><br>
+        <label><input type="radio" name="p2" value="c"> c: Index</label><br>
+        <label><input type="radio" name="p2" value="d"> d: View</label>
+      </div>
+      <div class="section">
+        <p><strong>3. A Primary Key is used to:</strong></p>
+        <label><input type="radio" name="p3" value="a"> a: Uniquely identify a record</label><br>
+        <label><input type="radio" name="p3" value="b"> b: Store duplicate rows</label><br>
+        <label><input type="radio" name="p3" value="c"> c: Format output</label><br>
+        <label><input type="radio" name="p3" value="d"> d: None of these</label>
+      </div>
+      <div class="section">
+        <p><strong>4. Multi-valued attributes are typically mapped into:</strong></p>
+        <label><input type="radio" name="p4" value="a"> a: A separate table</label><br>
+        <label><input type="radio" name="p4" value="b"> b: A single column</label><br>
+        <label><input type="radio" name="p4" value="c"> c: A view</label><br>
+        <label><input type="radio" name="p4" value="d"> d: An index</label>
+      </div>
+      <div class="section">
+        <p><strong>5. A many-to-many relationship is typically mapped using:</strong></p>
+        <label><input type="radio" name="p5" value="a"> a: A single table</label><br>
+        <label><input type="radio" name="p5" value="b"> b: A junction/bridge table</label><br>
+        <label><input type="radio" name="p5" value="c"> c: No table</label><br>
+        <label><input type="radio" name="p5" value="d"> d: A view only</label>
+      </div>
+      <button type="button" onclick="checkPosttest()">Submit Quiz</button>
+      <p id="result" class="result"></p>
+    </form>
+  </div>
+
+  <div class="content">
+    <div class="section">
+      <h2>Assignment</h2>
+      <ol>
+      <li>Convert Student ER Model into Relations.</li>
+      <li>Convert Library ER Diagram into Tables.</li>
+      <li>Identify Primary and Foreign Keys.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>Viva Questions</h2>
+      <ol>
+      <li>What is ER Mapping?</li>
+      <li>What is Relational Schema?</li>
+      <li>What is Primary Key?</li>
+      <li>What is Foreign Key?</li>
+      <li>Why is Mapping Required?</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    function checkPosttest() {
+      const correctAnswers = { p1: "b", p2: "b", p3: "a", p4: "a", p5: "b" };
+      let score = 0;
+      let total = Object.keys(correctAnswers).length;
+      for (let key in correctAnswers) {
+        const options = document.querySelectorAll(`input[name="${key}"]`);
+        options.forEach(option => {
+          const label = option.parentElement;
+          label.style.color = "";
+          if (option.checked) {
+            if (option.value === correctAnswers[key]) {
+              label.style.color = "green";
+              score++;
+            } else {
+              label.style.color = "red";
+            }
+          }
+        });
+      }
+      document.getElementById("result").innerText = `${score} out of ${total}`;
+    }
+  </script>
+
+  <!-- Modal Menu -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <img src="../../assets/logo.jpg" alt="Logo" class="modal-logo"/>
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+      <ul class="modal-menu">
+        <li><a href="AO.html">Aim</a></li>
+        <li><a href="theory.html">Theory</a></li>
+        <li><a href="quiz.html">Pretest</a></li>
+        <li><a href="pro.html">Procedure</a></li>
+        <li><a href="sim.html">Simulation</a></li>
+        <li><a href="postt.html" class="active">Posttest</a></li>
+        <li><a href="ref.html">References</a></li>
+        <li><a href="feed2.html">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../../js/script.js"></script>
+</body>
+</html>

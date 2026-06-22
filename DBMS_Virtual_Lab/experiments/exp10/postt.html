@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBMS Virtual Laboratory</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="menu-bar">
+      <div class="menu-icon" id="menuToggle">&#9776;</div>
+      <div class="logo">
+        <img src="../../assets/logo.jpg" alt="Virtual Labs Logo" />
+      </div>
+    </div>
+    <div class="orange-line"></div>
+    <h2 align="left" style="color:#4a90e2"><div class="section"><a href="#">Computer Science and Engineering</a> &gt; <a href="../../index.html">DBMS Virtual Laboratory</a> &gt; <a href="../../experiments.html">Experiments</a></div></h2>
+    <div class="grey-line"></div>
+  </header>
+
+  <main class="content">
+    <h1 align="center">Experiment 10: Transactions & Concurrency</h1>
+  </main>
+
+  <div class="container" style="max-width:900px;margin:auto;padding:0 20px;">
+    <form id="posttestForm">
+      <div class="section">
+        <p><strong>1. Consistency ensures that a transaction:</strong></p>
+        <label><input type="radio" name="p1" value="a"> a: Leaves the database in a valid state</label><br>
+        <label><input type="radio" name="p1" value="b"> b: Always fails</label><br>
+        <label><input type="radio" name="p1" value="c"> c: Ignores constraints</label><br>
+        <label><input type="radio" name="p1" value="d"> d: None of these</label>
+      </div>
+      <div class="section">
+        <p><strong>2. Isolation ensures that:</strong></p>
+        <label><input type="radio" name="p2" value="a"> a: Transactions execute as if alone</label><br>
+        <label><input type="radio" name="p2" value="b"> b: Transactions always run serially</label><br>
+        <label><input type="radio" name="p2" value="c"> c: Data is never saved</label><br>
+        <label><input type="radio" name="p2" value="d"> d: None of these</label>
+      </div>
+      <div class="section">
+        <p><strong>3. Durability ensures that committed changes:</strong></p>
+        <label><input type="radio" name="p3" value="a"> a: Are lost on failure</label><br>
+        <label><input type="radio" name="p3" value="b"> b: Persist even after a system failure</label><br>
+        <label><input type="radio" name="p3" value="c"> c: Are reversible always</label><br>
+        <label><input type="radio" name="p3" value="d"> d: None of these</label>
+      </div>
+      <div class="section">
+        <p><strong>4. A deadlock occurs when:</strong></p>
+        <label><input type="radio" name="p4" value="a"> a: Two transactions wait indefinitely for each other's locks</label><br>
+        <label><input type="radio" name="p4" value="b"> b: A transaction completes successfully</label><br>
+        <label><input type="radio" name="p4" value="c"> c: Only one transaction runs</label><br>
+        <label><input type="radio" name="p4" value="d"> d: None of these</label>
+      </div>
+      <div class="section">
+        <p><strong>5. Concurrent schedules can lead to:</strong></p>
+        <label><input type="radio" name="p5" value="a"> a: Guaranteed consistency</label><br>
+        <label><input type="radio" name="p5" value="b"> b: Possible conflicts between transactions</label><br>
+        <label><input type="radio" name="p5" value="c"> c: No effect on data</label><br>
+        <label><input type="radio" name="p5" value="d"> d: None of these</label>
+      </div>
+      <button type="button" onclick="checkPosttest()">Submit Quiz</button>
+      <p id="result" class="result"></p>
+    </form>
+  </div>
+
+  <div class="content">
+    <div class="section">
+      <h2>Assignment</h2>
+      <ol>
+      <li>Explain ACID properties.</li>
+      <li>Differentiate Serial and Concurrent schedules.</li>
+      <li>Explain Deadlock.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>Viva Questions</h2>
+      <ol>
+      <li>What is a Transaction?</li>
+      <li>What is Atomicity?</li>
+      <li>What is Consistency?</li>
+      <li>What is Isolation?</li>
+      <li>What is Deadlock?</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    function checkPosttest() {
+      const correctAnswers = { p1: "a", p2: "a", p3: "b", p4: "a", p5: "b" };
+      let score = 0;
+      let total = Object.keys(correctAnswers).length;
+      for (let key in correctAnswers) {
+        const options = document.querySelectorAll(`input[name="${key}"]`);
+        options.forEach(option => {
+          const label = option.parentElement;
+          label.style.color = "";
+          if (option.checked) {
+            if (option.value === correctAnswers[key]) {
+              label.style.color = "green";
+              score++;
+            } else {
+              label.style.color = "red";
+            }
+          }
+        });
+      }
+      document.getElementById("result").innerText = `${score} out of ${total}`;
+    }
+  </script>
+
+  <!-- Modal Menu -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <img src="../../assets/logo.jpg" alt="Logo" class="modal-logo"/>
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+      <ul class="modal-menu">
+        <li><a href="AO.html">Aim</a></li>
+        <li><a href="theory.html">Theory</a></li>
+        <li><a href="quiz.html">Pretest</a></li>
+        <li><a href="pro.html">Procedure</a></li>
+        <li><a href="sim.html">Simulation</a></li>
+        <li><a href="postt.html" class="active">Posttest</a></li>
+        <li><a href="ref.html">References</a></li>
+        <li><a href="feed2.html">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../../js/script.js"></script>
+</body>
+</html>

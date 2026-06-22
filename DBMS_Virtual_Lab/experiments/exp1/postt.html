@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBMS Virtual Laboratory</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="menu-bar">
+      <div class="menu-icon" id="menuToggle">&#9776;</div>
+      <div class="logo">
+        <img src="../../assets/logo.jpg" alt="Virtual Labs Logo" />
+      </div>
+    </div>
+    <div class="orange-line"></div>
+    <h2 align="left" style="color:#4a90e2"><div class="section"><a href="#">Computer Science and Engineering</a> &gt; <a href="../../index.html">DBMS Virtual Laboratory</a> &gt; <a href="../../experiments.html">Experiments</a></div></h2>
+    <div class="grey-line"></div>
+  </header>
+
+  <main class="content">
+    <h1 align="center">Experiment 1: DBMS vs File System</h1>
+  </main>
+
+  <div class="container" style="max-width:900px;margin:auto;padding:0 20px;">
+    <form id="posttestForm">
+      <div class="section">
+        <p><strong>1. Which system stores data in structured tables?</strong></p>
+        <label><input type="radio" name="p1" value="a"> a: File System</label><br>
+        <label><input type="radio" name="p1" value="b"> b: DBMS</label><br>
+        <label><input type="radio" name="p1" value="c"> c: Both</label><br>
+        <label><input type="radio" name="p1" value="d"> d: Neither</label>
+      </div>
+      <div class="section">
+        <p><strong>2. Redundancy is generally higher in:</strong></p>
+        <label><input type="radio" name="p2" value="a"> a: DBMS</label><br>
+        <label><input type="radio" name="p2" value="b"> b: File System</label><br>
+        <label><input type="radio" name="p2" value="c"> c: Both equally</label><br>
+        <label><input type="radio" name="p2" value="d"> d: Neither</label>
+      </div>
+      <div class="section">
+        <p><strong>3. Which provides automatic backup?</strong></p>
+        <label><input type="radio" name="p3" value="a"> a: File System</label><br>
+        <label><input type="radio" name="p3" value="b"> b: DBMS</label><br>
+        <label><input type="radio" name="p3" value="c"> c: Both</label><br>
+        <label><input type="radio" name="p3" value="d"> d: Neither</label>
+      </div>
+      <div class="section">
+        <p><strong>4. Concurrent access is supported by:</strong></p>
+        <label><input type="radio" name="p4" value="a"> a: File System</label><br>
+        <label><input type="radio" name="p4" value="b"> b: DBMS</label><br>
+        <label><input type="radio" name="p4" value="c"> c: Both</label><br>
+        <label><input type="radio" name="p4" value="d"> d: Neither</label>
+      </div>
+      <div class="section">
+        <p><strong>5. Data integrity is generally:</strong></p>
+        <label><input type="radio" name="p5" value="a"> a: Lower in DBMS</label><br>
+        <label><input type="radio" name="p5" value="b"> b: Higher in DBMS</label><br>
+        <label><input type="radio" name="p5" value="c"> c: Equal in both</label><br>
+        <label><input type="radio" name="p5" value="d"> d: Not applicable</label>
+      </div>
+      <button type="button" onclick="checkPosttest()">Submit Quiz</button>
+      <p id="result" class="result"></p>
+    </form>
+  </div>
+
+  <div class="content">
+    <div class="section">
+      <h2>Assignment</h2>
+      <ol>
+      <li>Differentiate DBMS and File System.</li>
+      <li>Explain redundancy.</li>
+      <li>Explain integrity constraints.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>Viva Questions</h2>
+      <ol>
+      <li>What is DBMS?</li>
+      <li>What is File System?</li>
+      <li>What is redundancy?</li>
+      <li>What is concurrency?</li>
+      <li>What is data integrity?</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    function checkPosttest() {
+      const correctAnswers = { p1: "b", p2: "b", p3: "b", p4: "b", p5: "b" };
+      let score = 0;
+      let total = Object.keys(correctAnswers).length;
+      for (let key in correctAnswers) {
+        const options = document.querySelectorAll(`input[name="${key}"]`);
+        options.forEach(option => {
+          const label = option.parentElement;
+          label.style.color = "";
+          if (option.checked) {
+            if (option.value === correctAnswers[key]) {
+              label.style.color = "green";
+              score++;
+            } else {
+              label.style.color = "red";
+            }
+          }
+        });
+      }
+      document.getElementById("result").innerText = `${score} out of ${total}`;
+    }
+  </script>
+
+  <!-- Modal Menu -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <img src="../../assets/logo.jpg" alt="Logo" class="modal-logo"/>
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+      <ul class="modal-menu">
+        <li><a href="AO.html">Aim</a></li>
+        <li><a href="theory.html">Theory</a></li>
+        <li><a href="quiz.html">Pretest</a></li>
+        <li><a href="pro.html">Procedure</a></li>
+        <li><a href="sim.html">Simulation</a></li>
+        <li><a href="postt.html" class="active">Posttest</a></li>
+        <li><a href="ref.html">References</a></li>
+        <li><a href="feed2.html">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../../js/script.js"></script>
+</body>
+</html>
